@@ -2,25 +2,12 @@ import { IconButton } from "./ui";
 import { cn } from "./ui/utils.ts";
 import { Lucide } from "./icons";
 
-// TODO : update projects
 const projects = [
   {
-    title: "astrolinkt",
-    description: "Astro template",
-    icon: Lucide.IconImage,
-    url: "https://github.com/flamrdevs/astrolinkt",
-  },
-  {
-    title: "astrovehnt",
-    description: "Astro template",
-    icon: Lucide.IconImage,
-    url: "https://github.com/flamrdevs/astrovehnt",
-  },
-  {
-    title: "astrobuckt",
-    description: "Astro template",
-    icon: Lucide.IconImage,
-    url: "https://github.com/flamrdevs/astrobuckt",
+    title: "NTUQC Website",
+    description: "Website for our club",
+    icon: Lucide.IconGlobe,
+    url: "https://github.com/austin-hua/NTUQC-Website",
   },
 ];
 

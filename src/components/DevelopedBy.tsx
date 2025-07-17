@@ -1,18 +1,25 @@
-// TODO : update developer
-
 const DevelopedBy = () => {
   return (
-    <div className="mb-8 font-mono text-neutral-10 text-xs text-center">
+    <div className="mb-8 font-mono text-neutral-10 text-xs text-center flex flex-col gap-3">
+      <div>
+        <span>Contact us: </span>
+        <a
+          href="mailto:ntuquantumclub@gmail.com"
+          className="inline-block transition duration-300 hover:-translate-y-px outline-none hover:text-primary-10 focus-visible:text-primary-10"
+          aria-label="Email"
+        >
+          ntuquantumclub@gmail.com
+        </a>
+      </div>
       <span>
         Developed by{" "}
         <a
-          href="https://github.com/flamrdevs"
+          href="https://github.com/austin-hua/NTUQC-Website"
           className="inline-block transition duration-300 hover:-translate-y-px outline-none hover:text-primary-10 focus-visible:text-primary-10"
           target="_blank"
           aria-label="Developer"
         >
-          {" "}
-          flamrdevs
+          NTU Quantum Club
         </a>
       </span>
     </div>
