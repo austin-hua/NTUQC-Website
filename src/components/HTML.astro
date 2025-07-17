@@ -1,0 +1,43 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+import "~/styles/globals.ts";
+
+type Props = HTMLAttributes<"html"> & {
+  title?: string;
+  description?: string;
+};
+
+const {
+  // TODO : html default title
+  title = "astrolinkt",
+  // TODO : html default description
+  description = title,
+  ...html
+} = Astro.props;
+---
+
+<!-- TODO : html data-theme = "light" or "dark" -->
+<html lang="en" data-theme="dark" {...html}>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <!-- TODO : fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+      rel="stylesheet"
+    />
+
+    <slot name="head" />
+  </head>
+  <body>
+    <slot name="body" />
+  </body>
+</html>
