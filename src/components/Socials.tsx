@@ -4,7 +4,7 @@ import { Simple } from "./icons";
 // NTU Quantum Club social links
 const socials = [
   {
-    href: "mailto:ntuquantumclub@gmail.com",
+    href: "mailto:ntuquantum@gmail.com",
     name: "Email",
     icon: Simple.IconEmail,
   },
@@ -27,6 +27,11 @@ const socials = [
     href: "https://www.instagram.com/ntuquantum",
     name: "Instagram",
     icon: Simple.IconInstagram,
+  },
+  {
+    href: "https://youtube.com/@NTUQC",
+    name: "YouTube",
+    icon: Simple.IconYoutube,
   },
 ];
 

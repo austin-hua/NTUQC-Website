@@ -12,7 +12,7 @@ export default () => {
         </Avatar>
 
         <div className="flex flex-col items-start gap-2">
-          <h1 className="font-medium text-lg lg:text-xl">台大量子應用社</h1>
+          <h1 className="font-medium text-lg lg:text-xl">臺大量子應用社</h1>
           <h2 className="font-medium text-2xl lg:text-3xl">NTU Quantum Club</h2>
         </div>
       </div>

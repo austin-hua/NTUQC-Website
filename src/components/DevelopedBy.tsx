@@ -4,11 +4,11 @@ const DevelopedBy = () => {
       <div>
         <span>Contact us: </span>
         <a
-          href="mailto:ntuquantumclub@gmail.com"
+          href="mailto:ntuquantum@gmail.com"
           className="inline-block transition duration-300 hover:-translate-y-px outline-none hover:text-primary-10 focus-visible:text-primary-10"
           aria-label="Email"
         >
-          ntuquantumclub@gmail.com
+          ntuquantum@gmail.com
         </a>
       </div>
       <span>
