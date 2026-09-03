@@ -1,0 +1,33 @@
+---
+import { CURRENT_YEAR } from "~/data/staff.ts";
+
+type Props = {
+  active: "home" | "team";
+};
+
+const { active } = Astro.props;
+
+const links = [
+  { key: "home" as const, href: "/", label: "Home" },
+  { key: "team" as const, href: `/team/${CURRENT_YEAR}/`, label: "Team" },
+];
+---
+
+<nav class="flex items-center justify-center gap-2 py-4">
+  {
+    links.map((link) => (
+      <a
+        href={link.href}
+        class:list={[
+          "px-4 h-8 inline-flex items-center border rounded-xl text-sm font-medium transition outline-none",
+          "focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-neutral-7 focus-visible:ring-offset-neutral-1",
+          link.key === active
+            ? "bg-primary-3 border-primary-6 text-primary-11"
+            : "bg-neutral-2 hover:bg-neutral-3 border-neutral-4 hover:border-neutral-6 text-neutral-10 hover:text-neutral-11",
+        ]}
+      >
+        {link.label}
+      </a>
+    ))
+  }
+</nav>

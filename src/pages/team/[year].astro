@@ -1,0 +1,26 @@
+---
+import MainLayout from "~/layouts/MainLayout.astro";
+
+import Nav from "~/components/Nav.astro";
+import Team from "~/components/Team.tsx";
+
+import { STAFF, getStaffYear } from "~/data/staff.ts";
+
+export function getStaticPaths() {
+  return STAFF.map((staffYear) => ({ params: { year: staffYear.year } }));
+}
+
+const { year } = Astro.params;
+const staffYear = getStaffYear(year!)!;
+---
+
+<MainLayout
+  title={`Team · ${staffYear.label} | NTU Quantum Club`}
+  description={`Meet the NTU Quantum Club staff team for the ${staffYear.label}.`}
+>
+  <main class="container p-3 mx-auto max-w-screen-sm min-h-dvh">
+    <Nav active="team" />
+
+    <Team year={staffYear.year} client:idle />
+  </main>
+</MainLayout>

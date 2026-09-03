@@ -14,3 +14,26 @@ const { title, description } = Astro.props;
     <slot />
   </Fragment>
 </HTML>
+
+<style is:global>
+  /* boxes pattern */
+  body {
+    z-index: 1;
+    position: relative;
+    background-color: rgb(var(--neutral-1));
+    background-image: linear-gradient(rgb(var(--neutral-2)) 1px, transparent 1px),
+      linear-gradient(to right, rgb(var(--neutral-2)) 1px, rgb(var(--neutral-1)) 1px);
+    background-size: 40px 40px;
+  }
+
+  body::after {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(to bottom, transparent, rgb(var(--neutral-1)));
+  }
+</style>
