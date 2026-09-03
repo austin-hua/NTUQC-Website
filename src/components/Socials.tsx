@@ -29,9 +29,14 @@ const socials = [
     icon: Simple.IconInstagram,
   },
   {
-    href: "https://youtube.com/@NTUQC",
+    href: "https://www.youtube.com/@ntuquantum",
     name: "YouTube",
     icon: Simple.IconYoutube,
+  },
+  {
+    href: "https://www.threads.com/@ntuquantum",
+    name: "Threads",
+    icon: Simple.IconThreads,
   },
 ];
 
