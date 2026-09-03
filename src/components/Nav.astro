@@ -3,7 +3,7 @@ import { CURRENT_YEAR } from "~/data/staff.ts";
 import { Lucide } from "~/components/icons";
 
 type Props = {
-  active: "home" | "team" | "collaborators";
+  active: "home" | "team" | "partners";
 };
 
 const { active } = Astro.props;
@@ -11,7 +11,7 @@ const { active } = Astro.props;
 const links = [
   { key: "home" as const, href: "/", label: "Home" },
   { key: "team" as const, href: `/team/${CURRENT_YEAR}/`, label: "Team" },
-  { key: "collaborators" as const, href: "/collaborators/", label: "Collaborators" },
+  { key: "partners" as const, href: "/partners/", label: "Partners" },
 ];
 
 const eventLinks = [
