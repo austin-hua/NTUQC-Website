@@ -2,7 +2,7 @@ import { Avatar } from "./ui";
 import { cn } from "./ui/utils.ts";
 import { Lucide } from "./icons";
 
-import { STAFF, ROLE_DESCRIPTIONS, type StaffMember } from "~/data/staff.ts";
+import { STAFF, PEOPLE, ROLE_DESCRIPTIONS, type StaffPosition, type VacantPosition } from "~/data/staff.ts";
 
 type Props = {
   year: string;
@@ -11,8 +11,8 @@ type Props = {
 export default ({ year }: Props) => {
   const staffYear = STAFF.find((y) => y.year === year) ?? STAFF[0];
 
-  const executives = staffYear.members.filter((member) => member.section === "executive");
-  const advisors = staffYear.members.filter((member) => member.section === "advisor");
+  const executives = staffYear.positions.filter((position) => position.section === "executive");
+  const advisors = staffYear.positions.filter((position) => position.section === "advisor");
 
   return (
     <div className="flex flex-col gap-8 px-3 lg:px-6 py-4">
@@ -45,30 +45,30 @@ export default ({ year }: Props) => {
         <p className="text-sm text-neutral-10">{staffYear.label}</p>
       </div>
 
-      <StaffSection title="Executive Team" members={executives} />
+      <StaffSection title="Executive Team" positions={executives} />
 
-      {advisors.length > 0 && <StaffSection title="Advisors" members={advisors} />}
+      {advisors.length > 0 && <StaffSection title="Advisors" positions={advisors} />}
     </div>
   );
 };
 
-const StaffSection = ({ title, members }: { title: string; members: StaffMember[] }) => (
+const StaffSection = ({ title, positions }: { title: string; positions: (StaffPosition | VacantPosition)[] }) => (
   <div className="flex flex-col gap-3">
     <h2 className="font-medium text-xl">{title}</h2>
     <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-      {members.map((member) => (
-        <li key={`${member.role}-${member.name}`}>
-          <StaffCard member={member} />
+      {positions.map((position) => (
+        <li key={"personId" in position ? `${position.role}-${position.personId}` : `${position.role}-vacant`}>
+          <StaffCard position={position} />
         </li>
       ))}
     </ul>
   </div>
 );
 
-const StaffCard = ({ member }: { member: StaffMember }) => {
-  const jd = ROLE_DESCRIPTIONS[member.role];
+const StaffCard = ({ position }: { position: StaffPosition | VacantPosition }) => {
+  const jd = ROLE_DESCRIPTIONS[position.role];
 
-  if (member.vacant) {
+  if ("vacant" in position) {
     return (
       <div
         className={cn(
@@ -76,7 +76,7 @@ const StaffCard = ({ member }: { member: StaffMember }) => {
           "bg-neutral-2/50 border border-dashed border-neutral-5 rounded-3xl"
         )}
       >
-        <h3 className="text-neutral-12 text-sm font-medium">{member.role}</h3>
+        <h3 className="text-neutral-12 text-sm font-medium">{position.role}</h3>
         {jd && <p className="text-neutral-10 text-xs">{jd}</p>}
         <a
           href="https://discord.gg/rXgwHxQNaq"
@@ -89,20 +89,50 @@ const StaffCard = ({ member }: { member: StaffMember }) => {
     );
   }
 
-  return (
-    <div className={cn("flex flex-col gap-3 h-full px-4 py-4", "bg-neutral-2 border border-neutral-4 rounded-3xl")}>
+  const person = PEOPLE[position.personId];
+
+  const content = (
+    <>
       <div className="flex flex-row items-center gap-3">
-        <Avatar src={member.image} alt={member.name}>
+        <Avatar src={person.image} alt={person.name}>
           <Lucide.IconUser className="size-1/2" />
         </Avatar>
         <div className="flex flex-col">
-          <h3 className="text-neutral-12 text-sm font-medium">{member.name}</h3>
-          <span className="text-neutral-10 text-xs">{member.role}</span>
+          <h3 className="text-neutral-12 text-sm font-medium">{person.name}</h3>
+          <span className="text-neutral-10 text-xs">{position.role}</span>
+          {position.note && <span className="text-primary-10 text-[11px] font-medium">{position.note}</span>}
         </div>
       </div>
 
       {jd && <p className="text-neutral-10 text-xs">{jd}</p>}
-      {member.intro && <p className="text-neutral-11 text-xs italic">&ldquo;{member.intro}&rdquo;</p>}
-    </div>
+      {person.intro && <p className="text-neutral-11 text-xs italic">&ldquo;{person.intro}&rdquo;</p>}
+    </>
   );
+
+  const cardClasses = "group relative flex flex-col gap-3 h-full px-4 py-4 bg-neutral-2 border border-neutral-4 rounded-3xl";
+
+  if (person.link) {
+    return (
+      <a
+        href={person.link}
+        target="_blank"
+        rel="noreferrer"
+        aria-label={person.name}
+        className={cn(
+          cardClasses,
+          "outline-none transition hover:bg-neutral-3 hover:border-neutral-6",
+          "focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-neutral-7 focus-visible:ring-offset-neutral-1"
+        )}
+      >
+        {content}
+        <Lucide.IconExternalLink
+          aria-hidden
+          size={16}
+          className="absolute top-4 right-4 text-neutral-10 transition group-hover:text-primary-11"
+        />
+      </a>
+    );
+  }
+
+  return <div className={cardClasses}>{content}</div>;
 };

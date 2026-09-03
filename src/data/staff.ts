@@ -9,19 +9,30 @@ export type StaffRole =
   | "Club Advisor"
   | "Advisor";
 
-export type StaffMember = {
+export type Person = {
   name: string;
-  role: StaffRole;
-  section: "executive" | "advisor";
   image: string;
   intro?: string;
-  vacant?: boolean;
+  link?: string;
+};
+
+export type StaffPosition = {
+  personId: string;
+  role: StaffRole;
+  section: "executive" | "advisor";
+  note?: string;
+};
+
+export type VacantPosition = {
+  vacant: true;
+  role: StaffRole;
+  section: "executive" | "advisor";
 };
 
 export type StaffYear = {
   year: string;
   label: string;
-  members: StaffMember[];
+  positions: (StaffPosition | VacantPosition)[];
 };
 
 // Job descriptions sourced from the NTUQC constitution (Articles 12-20).
@@ -48,93 +59,92 @@ export const ROLE_DESCRIPTIONS: Record<StaffRole, string> = {
 
 const DEFAULT_IMAGE = "/staff/default-avatar.svg";
 
+// People are keyed by id so the same person can hold different roles in
+// different years (e.g. a past president who is now an advisor) without
+// duplicating their bio/photo/link in more than one place.
+export const PEOPLE: Record<string, Person> = {
+  "po-sheng-huang": {
+    name: "Po-Sheng Huang",
+    image: DEFAULT_IMAGE,
+    intro:
+      "Hi, I'm Po-Sheng! I'm a huge fan of bubble tea and late-night debugging sessions. Looking forward to a great year of quantum exploration with everyone.",
+  },
+  "katie-chao": {
+    name: "Katie Chao",
+    image: DEFAULT_IMAGE,
+    intro:
+      "Hey there, I'm Katie! When I'm not in class you can probably find me at the climbing gym. Excited to help make this year's events unforgettable.",
+  },
+  maxence: {
+    name: "Maxence",
+    image: DEFAULT_IMAGE,
+    intro:
+      "Hi, I'm Maxence! I got hooked on quantum computing after my first qubit simulation crashed spectacularly. Can't wait to share that same spark with new members.",
+  },
+  "haocheng-kan": {
+    name: "Haocheng Kan",
+    image: DEFAULT_IMAGE,
+    intro: "Hi, I'm Haocheng! I spend more time picking fonts than I probably should. Let's make NTUQC's socials the best-looking feed on campus.",
+  },
+  "christian-rioflorido": {
+    name: "Christian Rioflorido",
+    image: DEFAULT_IMAGE,
+    intro:
+      "Hey, I'm Christian! I once stayed up 30 hours straight for a hackathon and would happily do it again. Ready to help our team crush the next Qiskit Hackathon.",
+  },
+  "robin-fischer": {
+    name: "Robin Fischer",
+    image: DEFAULT_IMAGE,
+    intro:
+      "Hi, I'm Robin! Ask me about the best boba spots near campus, I have strong opinions. Excited to plan events that bring our whole community together.",
+  },
+  "hsi-sheng-goan": {
+    name: "Professor Hsi-Sheng Goan",
+    image: DEFAULT_IMAGE,
+    intro:
+      "I've spent my career researching quantum information and open quantum systems, and I'm delighted to support NTUQC's students as they explore this field. Looking forward to another exciting year of ideas and collaboration.",
+  },
+  "austin-hua": {
+    name: "Austin Hua",
+    image: "/staff/austin-hua.jpg",
+    link: "https://www.linkedin.com/in/austin-hua/",
+    intro: "Hi, I'm Austin! I built the club's first website and I'm still not over how fun that was. Happy to stick around and help however I can.",
+  },
+  "mark-chen": {
+    name: "Mark Chen",
+    image: DEFAULT_IMAGE,
+    intro: "Hey, I'm Mark! I'm always up for a good conversation about quantum algorithms or terrible puns. Glad to keep supporting NTUQC from the sidelines.",
+  },
+};
+
 export const CURRENT_YEAR = "115";
 
 export const STAFF: StaffYear[] = [
   {
     year: "115",
     label: "115th Academic Year (2026-2027)",
-    members: [
-      {
-        name: "Po-Sheng Huang",
-        role: "President",
-        section: "executive",
-        image: DEFAULT_IMAGE,
-        intro:
-          "Hi, I'm Po-Sheng! I'm a huge fan of bubble tea and late-night debugging sessions. Looking forward to a great year of quantum exploration with everyone.",
-      },
-      {
-        name: "Katie Chao",
-        role: "Vice President",
-        section: "executive",
-        image: DEFAULT_IMAGE,
-        intro:
-          "Hey there, I'm Katie! When I'm not in class you can probably find me at the climbing gym. Excited to help make this year's events unforgettable.",
-      },
-      {
-        name: "Maxence",
-        role: "STEM Chair",
-        section: "executive",
-        image: DEFAULT_IMAGE,
-        intro:
-          "Hi, I'm Maxence! I got hooked on quantum computing after my first qubit simulation crashed spectacularly. Can't wait to share that same spark with new members.",
-      },
-      {
-        name: "Haocheng Kan",
-        role: "PR Chair",
-        section: "executive",
-        image: DEFAULT_IMAGE,
-        intro:
-          "Hi, I'm Haocheng! I spend more time picking fonts than I probably should. Let's make NTUQC's socials the best-looking feed on campus.",
-      },
-      {
-        name: "Recruiting",
-        role: "Administration Chair",
-        section: "executive",
-        image: DEFAULT_IMAGE,
-        vacant: true,
-      },
-      {
-        name: "Christian Rioflorido",
-        role: "Competitions Chair",
-        section: "executive",
-        image: DEFAULT_IMAGE,
-        intro:
-          "Hey, I'm Christian! I once stayed up 30 hours straight for a hackathon and would happily do it again. Ready to help our team crush the next Qiskit Hackathon.",
-      },
-      {
-        name: "Robin Fischer",
-        role: "Events Chair",
-        section: "executive",
-        image: DEFAULT_IMAGE,
-        intro:
-          "Hi, I'm Robin! Ask me about the best boba spots near campus, I have strong opinions. Excited to plan events that bring our whole community together.",
-      },
-      {
-        name: "Professor Hsi-Sheng Goan",
-        role: "Club Advisor",
-        section: "advisor",
-        image: DEFAULT_IMAGE,
-        intro:
-          "I've spent my career researching quantum information and open quantum systems, and I'm delighted to support NTUQC's students as they explore this field. Looking forward to another exciting year of ideas and collaboration.",
-      },
-      {
-        name: "Austin Hua",
-        role: "Advisor",
-        section: "advisor",
-        image: DEFAULT_IMAGE,
-        intro:
-          "Hi, I'm Austin! I built the club's first website and I'm still not over how fun that was. Happy to stick around and help however I can.",
-      },
-      {
-        name: "Mark Chen",
-        role: "Advisor",
-        section: "advisor",
-        image: DEFAULT_IMAGE,
-        intro:
-          "Hey, I'm Mark! I'm always up for a good conversation about quantum algorithms or terrible puns. Glad to keep supporting NTUQC from the sidelines.",
-      },
+    positions: [
+      { personId: "po-sheng-huang", role: "President", section: "executive" },
+      { personId: "katie-chao", role: "Vice President", section: "executive" },
+      { personId: "maxence", role: "STEM Chair", section: "executive" },
+      { personId: "haocheng-kan", role: "PR Chair", section: "executive" },
+      { vacant: true, role: "Administration Chair", section: "executive" },
+      { personId: "christian-rioflorido", role: "Competitions Chair", section: "executive" },
+      { personId: "robin-fischer", role: "Events Chair", section: "executive" },
+      { personId: "hsi-sheng-goan", role: "Club Advisor", section: "advisor" },
+      { personId: "austin-hua", role: "Advisor", section: "advisor" },
+      { personId: "mark-chen", role: "Advisor", section: "advisor" },
     ],
+  },
+  {
+    year: "114",
+    label: "114th Academic Year (2025-2026)",
+    positions: [{ personId: "austin-hua", role: "President", section: "executive" }],
+  },
+  {
+    year: "113",
+    label: "113th Academic Year (2024-2025)",
+    positions: [{ personId: "katie-chao", role: "President", section: "executive", note: "Founding President" }],
   },
 ];
 
