@@ -81,6 +81,8 @@ export const IconUser = create(
   </>
 );
 
+export const IconChevronDown = create(<path d="m6 9 6 6 6-6" />);
+
 export const IconGlobe = create(
   <>
     <circle cx="12" cy="12" r="10" />
