@@ -1,20 +1,25 @@
 ---
 import type { HTMLAttributes } from "astro/types";
 
+import Analytics from "@vercel/analytics/astro";
+
 import "~/styles/globals.ts";
 
 type Props = HTMLAttributes<"html"> & {
   title?: string;
   description?: string;
+  image?: string;
 };
 
 const {
-  // TODO : html default title
   title = "NTU Quantum Club",
-  // TODO : html default description
-  description = title,
+  description = "Promoting quantum science and technology education, research collaboration, and community building at National Taiwan University.",
+  image = "/og-image.png",
   ...html
 } = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
+const ogImageUrl = new URL(image, Astro.site);
 ---
 
 <!-- TODO : html data-theme = "light" or "dark" -->
@@ -26,6 +31,21 @@ const {
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="NTU Quantum Club" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
 
     <!-- TODO : fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -34,6 +54,8 @@ const {
       href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
       rel="stylesheet"
     />
+
+    <Analytics />
 
     <slot name="head" />
   </head>

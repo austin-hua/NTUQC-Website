@@ -1,9 +1,8 @@
 ---
 import { CURRENT_YEAR } from "~/data/staff.ts";
-import { Lucide } from "~/components/icons";
 
 type Props = {
-  active: "home" | "team" | "partners";
+  active: "home" | "team" | "partners" | "events";
 };
 
 const { active } = Astro.props;
@@ -12,11 +11,7 @@ const links = [
   { key: "home" as const, href: "/", label: "Home" },
   { key: "team" as const, href: `/team/${CURRENT_YEAR}/`, label: "Team" },
   { key: "partners" as const, href: "/partners/", label: "Partners" },
-];
-
-const eventLinks = [
-  { href: "https://sqai.org", label: "Summit on Quantum AI (SQAI)" },
-  { href: "https://quantum.ntu.edu.tw/?p=10004", label: "Qiskit Hackathon Taiwan" },
+  { key: "events" as const, href: "/events/", label: "Events" },
 ];
 
 const navLinkClasses = [
@@ -35,41 +30,4 @@ const inactiveClasses = "bg-neutral-2 hover:bg-neutral-3 border-neutral-4 hover:
       </a>
     ))
   }
-
-  <details class="nav-events group relative">
-    <summary class:list={[navLinkClasses, inactiveClasses, "gap-1 cursor-pointer select-none"]}>
-      Events
-      <Lucide.IconChevronDown size={14} className="transition group-open:rotate-180" />
-    </summary>
-
-    <div class="absolute left-1/2 top-full -translate-x-1/2 mt-2 z-10 flex flex-col gap-1 p-1 min-w-[220px] bg-neutral-2 border border-neutral-4 rounded-xl shadow-lg">
-      {
-        eventLinks.map((link) => (
-          <a
-            href={link.href}
-            target="_blank"
-            rel="noreferrer"
-            class="px-3 py-2 rounded-lg text-sm text-neutral-11 hover:bg-neutral-3 hover:text-primary-11 transition outline-none focus-visible:bg-neutral-3"
-          >
-            {link.label}
-          </a>
-        ))
-      }
-    </div>
-  </details>
 </nav>
-
-<style>
-  .nav-events summary::-webkit-details-marker {
-    display: none;
-  }
-</style>
-
-<script>
-  // Close the Events dropdown when clicking outside of it.
-  document.addEventListener("click", (event) => {
-    document.querySelectorAll<HTMLDetailsElement>(".nav-events[open]").forEach((details) => {
-      if (!details.contains(event.target as Node)) details.open = false;
-    });
-  });
-</script>

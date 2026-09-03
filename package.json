@@ -24,6 +24,7 @@
     "@klass/react": "4.0.0-next.28",
     "@radix-ui/react-avatar": "^1.0.4",
     "@radix-ui/react-separator": "^1.0.3",
+    "@vercel/analytics": "^2.0.1",
     "astro": "^4.7.0",
     "clsx": "^2.1.1",
     "react": "^18.3.1",
