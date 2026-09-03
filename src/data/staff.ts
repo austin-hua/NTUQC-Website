@@ -108,7 +108,8 @@ export const PEOPLE: Record<string, Person> = {
     name: "Austin Hua",
     image: "/staff/austin-hua.jpg",
     link: "https://www.linkedin.com/in/austin-hua/",
-    intro: "Hi, I'm Austin! I built the club's first website and I'm still not over how fun that was. Happy to stick around and help however I can.",
+    intro:
+      "Hi! I am Austin, an NTU CSIE MS graduate and co-founder of NTUQC. For this academic year I am assisting the President and Vice President in forming strategic partnerships in both academia and industry and contributing to the overall direction, development, and growth of the club. Feel free to reach out to me on my provided LinkedIn if you have any questions.",
   },
   "mark-chen": {
     name: "Mark Chen",
