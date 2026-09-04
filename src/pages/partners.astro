@@ -16,23 +16,23 @@ const confirmedPartners = PARTNERS.filter((partner) => partner.status === "confi
 
       {
         confirmedPartners.length > 0 && (
-          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <ul class="flex flex-col gap-4">
             {confirmedPartners.map((partner) => (
               <li>
                 <a
                   href={partner.href}
                   target="_blank"
                   rel="noreferrer"
-                  class="flex flex-col gap-4 h-full px-5 py-5 bg-neutral-2 hover:bg-neutral-3 border border-neutral-4 hover:border-neutral-6 rounded-3xl transition outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-neutral-7 focus-visible:ring-offset-neutral-1"
+                  class="flex flex-col gap-4 px-5 py-6 bg-neutral-2 hover:bg-neutral-3 border border-neutral-4 hover:border-neutral-6 rounded-3xl transition outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-neutral-7 focus-visible:ring-offset-neutral-1"
                 >
-                  <div class="flex items-center justify-center h-20">
-                    <img src={partner.image} alt={partner.name} class="max-h-16 max-w-full object-contain" />
+                  <div class="flex items-center justify-center h-48">
+                    <img src={partner.image} alt={partner.name} class="max-h-full max-w-full object-contain" />
                   </div>
 
-                  <div class="flex flex-col gap-1">
-                    <h3 class="text-neutral-12 text-sm font-medium">{partner.name}</h3>
-                    {partner.about && <p class="text-neutral-10 text-xs">{partner.about}</p>}
-                    {partner.partnership && <p class="text-neutral-10 text-xs">{partner.partnership}</p>}
+                  <div class="flex flex-col gap-2">
+                    <h3 class="text-neutral-12 text-lg font-medium">{partner.name}</h3>
+                    {partner.about && <p class="text-neutral-10 text-sm">{partner.about}</p>}
+                    {partner.partnership && <p class="text-neutral-10 text-sm">{partner.partnership}</p>}
                   </div>
                 </a>
               </li>
