@@ -37,15 +37,15 @@ export default ({ year }: Props) => {
   return (
     <div className="flex flex-col gap-8 px-3 lg:px-6 py-4">
       <div className="flex flex-col items-start gap-3">
-        <div className="flex flex-row items-center justify-between self-stretch gap-4">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between self-stretch gap-3 sm:gap-4">
           <h1 className="font-medium text-2xl lg:text-3xl">
             <span className="i18n-en">Staff Team</span>
             <span className="i18n-zh">幹部團隊</span>
           </h1>
 
-          <label className="flex items-center gap-2 text-xs text-neutral-10">
-            <span className="i18n-en">Year</span>
-            <span className="i18n-zh">學年度</span>
+          <label className="flex items-center gap-2 text-xs text-neutral-10 min-w-0">
+            <span className="i18n-en shrink-0">Year</span>
+            <span className="i18n-zh shrink-0">學年度</span>
             <select
               value={staffYear.year}
               onChange={(event) => {
@@ -53,7 +53,7 @@ export default ({ year }: Props) => {
               }}
               className={cn(
                 "bg-neutral-2 hover:bg-neutral-3 border border-neutral-4 hover:border-neutral-6 rounded-xl",
-                "px-3 h-8 text-sm text-neutral-11 outline-none",
+                "px-3 h-8 min-w-0 max-w-full text-sm text-neutral-11 outline-none",
                 "focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-neutral-7 focus-visible:ring-offset-neutral-1"
               )}
             >

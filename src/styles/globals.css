@@ -15,6 +15,15 @@ html[data-lang="zh"] .i18n-en {
   display: none;
 }
 
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 body {
   @apply bg-neutral-1 font-sans text-neutral-12;
 }

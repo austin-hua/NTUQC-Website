@@ -47,7 +47,7 @@ export default () => {
         <span className="i18n-en">Socials</span>
         <span className="i18n-zh">社群媒體</span>
       </h2>
-      <ul className="flex items-center justify-center gap-3 p-1">
+      <ul className="flex flex-wrap items-center justify-center gap-3 p-1">
         {socials.map((social) => {
           return (
             <li key={social.name}>
@@ -55,7 +55,7 @@ export default () => {
                 href={social.href}
                 className={cn(
                   "group",
-                  "flex items-center justify-center w-16 h-16 lg:w-20 lg:h-20",
+                  "flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20",
                   "bg-neutral-2 hover:bg-neutral-3",
                   "outline-none border border-neutral-4 hover:border-neutral-6 rounded-3xl",
                   "focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-neutral-7 focus-visible:ring-offset-neutral-1"
