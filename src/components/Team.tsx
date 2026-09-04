@@ -72,9 +72,18 @@ export default ({ year }: Props) => {
         </p>
       </div>
 
-      <StaffSection titleEn="Executive Team" titleZh="執行團隊" positions={executives} />
+      {staffYear.inactive ? (
+        <p className="text-neutral-10 text-sm">
+          <span className="i18n-en">The club had no formally registered staff this academic year.</span>
+          <span className="i18n-zh">本學年度社團未正式立案，因此沒有幹部紀錄。</span>
+        </p>
+      ) : (
+        <>
+          <StaffSection titleEn="Executive Team" titleZh="執行團隊" positions={executives} />
 
-      {advisors.length > 0 && <StaffSection titleEn="Advisors" titleZh="顧問群" positions={advisors} />}
+          {advisors.length > 0 && <StaffSection titleEn="Advisors" titleZh="顧問群" positions={advisors} />}
+        </>
+      )}
     </div>
   );
 };

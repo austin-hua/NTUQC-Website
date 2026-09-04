@@ -35,6 +35,8 @@ export type StaffYear = {
   year: string;
   label: LocalizedText;
   positions: (StaffPosition | VacantPosition)[];
+  // Years the club had no formally registered staff (see the Our Story page for context).
+  inactive?: boolean;
 };
 
 export const ROLE_NAMES: Record<StaffRole, LocalizedText> = {
@@ -151,6 +153,10 @@ export const PEOPLE: Record<string, Person> = {
       zh: "我的學術生涯致力於量子資訊與開放量子系統的研究，很樂意支持 NTUQC 的同學們探索這個領域。期待新的一年能有更多精彩的想法交流與合作。",
     },
   },
+  "chao-hsien": {
+    name: "Chao Hsien",
+    image: DEFAULT_IMAGE,
+  },
   "austin-hua": {
     name: "Austin Hua",
     image: "/staff/austin-hua.jpg",
@@ -177,7 +183,12 @@ export const STAFF: StaffYear[] = [
     year: "115",
     label: { en: "115th Academic Year (2026-2027)", zh: "115學年度（2026-2027）" },
     positions: [
-      { personId: "po-sheng-huang", role: "President", section: "executive" },
+      {
+        personId: "po-sheng-huang",
+        role: "President",
+        section: "executive",
+        note: { en: "3rd President", zh: "第3任社長" },
+      },
       { personId: "katie-chao", role: "Vice President", section: "executive" },
       { personId: "maxence", role: "STEM Chair", section: "executive" },
       { personId: "haocheng-kan", role: "PR Chair", section: "executive" },
@@ -192,14 +203,21 @@ export const STAFF: StaffYear[] = [
   {
     year: "114",
     label: { en: "114th Academic Year (2025-2026)", zh: "114學年度（2025-2026）" },
-    positions: [{ personId: "austin-hua", role: "President", section: "executive" }],
+    positions: [],
+    inactive: true,
   },
   {
     year: "113",
     label: { en: "113th Academic Year (2024-2025)", zh: "113學年度（2024-2025）" },
+    positions: [],
+    inactive: true,
+  },
+  {
+    year: "112",
+    label: { en: "112th Academic Year (2023-2024)", zh: "112學年度（2023-2024）" },
     positions: [
       {
-        personId: "katie-chao",
+        personId: "chao-hsien",
         role: "President",
         section: "executive",
         note: { en: "Founding President", zh: "創社社長" },

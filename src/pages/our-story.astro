@@ -1,0 +1,52 @@
+---
+import MainLayout from "~/layouts/MainLayout.astro";
+
+import Nav from "~/components/Nav.astro";
+import { STORY_MILESTONES, HACKATHON_VIDEO } from "~/data/story.ts";
+---
+
+<MainLayout title="Our Story | NTU Quantum Club" description="The history of NTU Quantum Club, from its founding to today.">
+  <main class="container p-3 mx-auto max-w-screen-sm min-h-dvh">
+    <Nav active="our-story" />
+
+    <div class="flex flex-col gap-8 px-3 lg:px-6 py-4">
+      <h1 class="font-medium text-2xl lg:text-3xl">
+        <span class="i18n-en">Our Story</span>
+        <span class="i18n-zh">我們的故事</span>
+      </h1>
+
+      <ol class="flex flex-col gap-3">
+        {
+          STORY_MILESTONES.map((milestone) => (
+            <li class="flex flex-col gap-2 px-5 py-5 bg-neutral-2 border border-neutral-4 rounded-3xl">
+              <span class="w-fit px-3 h-6 inline-flex items-center bg-primary-3 border border-primary-6 text-primary-11 text-xs font-medium rounded-full">
+                {milestone.year}
+              </span>
+              <p class="text-neutral-11 text-sm">
+                <span class="i18n-en">{milestone.text.en}</span>
+                <span class="i18n-zh">{milestone.text.zh}</span>
+              </p>
+            </li>
+          ))
+        }
+      </ol>
+
+      <div class="flex flex-col gap-3">
+        <p class="text-neutral-11 text-sm">
+          <span class="i18n-en">{HACKATHON_VIDEO.caption.en}</span>
+          <span class="i18n-zh">{HACKATHON_VIDEO.caption.zh}</span>
+        </p>
+
+        <div class="relative w-full aspect-video rounded-3xl overflow-hidden border border-neutral-4">
+          <iframe
+            class="absolute inset-0 w-full h-full"
+            src={`https://www.youtube-nocookie.com/embed/${HACKATHON_VIDEO.youtubeId}`}
+            title="Austin Hua introduces NTU Quantum Club at the Qiskit Hackathon"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          />
+        </div>
+      </div>
+    </div>
+  </main>
+</MainLayout>
