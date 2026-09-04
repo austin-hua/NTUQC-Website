@@ -9,8 +9,8 @@ export const STORY_MILESTONES: StoryMilestone[] = [
   {
     year: "112",
     text: {
-      en: "Chao Hsien founded the NTU Quantum Computing Club (NTUQCC), working closely with EntangleTech from the very beginning.",
-      zh: "Chao Hsien 創立了 NTU Quantum Computing Club（NTUQCC），創社初期便與 EntangleTech 密切合作。",
+      en: "Chao Hsien founded the NTU Quantum Computing Club (NTUQCC), working closely with EntangleTech from the very beginning. Professor Hsi-Sheng Goan has served as the club's faculty advisor ever since.",
+      zh: "Chao Hsien 創立了 NTU Quantum Computing Club（NTUQCC），創社初期便與 EntangleTech 密切合作。Hsi-Sheng Goan 教授自創社以來便一直擔任社團的指導教授。",
     },
   },
   {

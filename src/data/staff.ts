@@ -222,6 +222,7 @@ export const STAFF: StaffYear[] = [
         section: "executive",
         note: { en: "Founding President", zh: "創社社長" },
       },
+      { personId: "hsi-sheng-goan", role: "Club Advisor", section: "advisor" },
     ],
   },
 ];
