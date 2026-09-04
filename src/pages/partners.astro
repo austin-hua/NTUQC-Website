@@ -2,15 +2,46 @@
 import MainLayout from "~/layouts/MainLayout.astro";
 
 import Nav from "~/components/Nav.astro";
+import { PARTNERS } from "~/data/partners.ts";
+
+const confirmedPartners = PARTNERS.filter((partner) => partner.status === "confirmed");
 ---
 
 <MainLayout title="Partners | NTU Quantum Club" description="Organizations and institutions partnering with NTU Quantum Club.">
   <main class="container p-3 mx-auto max-w-screen-sm min-h-dvh">
     <Nav active="partners" />
 
-    <div class="flex flex-col items-center justify-center gap-2 px-3 py-24 text-center">
+    <div class="flex flex-col gap-6 px-3 lg:px-6 py-4">
       <h1 class="font-medium text-2xl lg:text-3xl">Partners</h1>
-      <p class="text-neutral-10 text-sm">Coming soon.</p>
+
+      {
+        confirmedPartners.length > 0 && (
+          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {confirmedPartners.map((partner) => (
+              <li>
+                <a
+                  href={partner.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  class="flex flex-col gap-4 h-full px-5 py-5 bg-neutral-2 hover:bg-neutral-3 border border-neutral-4 hover:border-neutral-6 rounded-3xl transition outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-neutral-7 focus-visible:ring-offset-neutral-1"
+                >
+                  <div class="flex items-center justify-center h-20">
+                    <img src={partner.image} alt={partner.name} class="max-h-16 max-w-full object-contain" />
+                  </div>
+
+                  <div class="flex flex-col gap-1">
+                    <h3 class="text-neutral-12 text-sm font-medium">{partner.name}</h3>
+                    {partner.about && <p class="text-neutral-10 text-xs">{partner.about}</p>}
+                    {partner.partnership && <p class="text-neutral-10 text-xs">{partner.partnership}</p>}
+                  </div>
+                </a>
+              </li>
+            ))}
+          </ul>
+        )
+      }
+
+      <p class="text-neutral-10 text-sm text-center py-6">More partners coming soon.</p>
     </div>
   </main>
 </MainLayout>

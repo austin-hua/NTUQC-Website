@@ -46,12 +46,16 @@ const cardClasses = [
             PARTNER_EVENTS.map((event) => (
               <li>
                 <a href={event.href} target="_blank" rel="noreferrer" class:list={cardClasses}>
-                  <div class="flex flex-row items-stretch gap-5 pl-2">
-                    <div class="flex items-center justify-center">
-                      <Lucide.IconGlobe
-                        size={24}
-                        className="transition duration-300 group-hover:-translate-y-1 text-neutral-10 group-hover:text-neutral-11"
-                      />
+                  <div class="flex flex-row items-center gap-5 pl-2">
+                    <div class="flex items-center justify-center h-12 shrink-0">
+                      {event.image ? (
+                        <img src={event.image} alt="" class="h-full w-auto max-w-[80px] object-contain rounded-md" />
+                      ) : (
+                        <Lucide.IconGlobe
+                          size={24}
+                          className="transition duration-300 group-hover:-translate-y-1 text-neutral-10 group-hover:text-neutral-11"
+                        />
+                      )}
                     </div>
 
                     <div>
