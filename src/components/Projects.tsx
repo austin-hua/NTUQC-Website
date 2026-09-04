@@ -4,8 +4,8 @@ import { Lucide } from "./icons";
 
 const projects = [
   {
-    title: "NTUQC Website",
-    description: "Website for our club",
+    title: { en: "NTUQC Website", zh: "NTUQC 網站" },
+    description: { en: "Website for our club", zh: "我們社團的網站" },
     icon: Lucide.IconGlobe,
     url: "https://github.com/austin-hua/NTUQC-Website",
   },
@@ -14,12 +14,15 @@ const projects = [
 export default () => {
   return (
     <div>
-      <h2 className="font-medium text-xl mb-3">Projects</h2>
+      <h2 className="font-medium text-xl mb-3">
+        <span className="i18n-en">Projects</span>
+        <span className="i18n-zh">專案</span>
+      </h2>
       <ul className="grid grid-cols-1 gap-3 p-1">
         {projects.map((project) => {
           return (
             <li
-              key={project.title}
+              key={project.title.en}
               className={cn(
                 "group",
                 "flex items-center justify-between px-4 py-3",
@@ -37,9 +40,13 @@ export default () => {
                 </div>
 
                 <div>
-                  <h3 className="transition duration-300 group-hover:translate-x-1 text-neutral-12 text-sm">{project.title}</h3>
+                  <h3 className="transition duration-300 group-hover:translate-x-1 text-neutral-12 text-sm">
+                    <span className="i18n-en">{project.title.en}</span>
+                    <span className="i18n-zh">{project.title.zh}</span>
+                  </h3>
                   <div className="transition duration-300 group-hover:translate-x-px text-neutral-10 group-hover:text-neutral-11 text-xs">
-                    {project.description}
+                    <span className="i18n-en">{project.description.en}</span>
+                    <span className="i18n-zh">{project.description.zh}</span>
                   </div>
                 </div>
               </div>

@@ -1,5 +1,6 @@
 ---
 import { CURRENT_YEAR } from "~/data/staff.ts";
+import LangToggle from "~/components/LangToggle.astro";
 
 type Props = {
   active: "home" | "team" | "partners" | "events";
@@ -8,10 +9,10 @@ type Props = {
 const { active } = Astro.props;
 
 const links = [
-  { key: "home" as const, href: "/", label: "Home" },
-  { key: "team" as const, href: `/team/${CURRENT_YEAR}/`, label: "Team" },
-  { key: "partners" as const, href: "/partners/", label: "Partners" },
-  { key: "events" as const, href: "/events/", label: "Events" },
+  { key: "home" as const, href: "/", label: { en: "Home", zh: "首頁" } },
+  { key: "team" as const, href: `/team/${CURRENT_YEAR}/`, label: { en: "Team", zh: "團隊" } },
+  { key: "partners" as const, href: "/partners/", label: { en: "Partners", zh: "合作夥伴" } },
+  { key: "events" as const, href: "/events/", label: { en: "Events", zh: "活動" } },
 ];
 
 const navLinkClasses = [
@@ -26,8 +27,11 @@ const inactiveClasses = "bg-neutral-2 hover:bg-neutral-3 border-neutral-4 hover:
   {
     links.map((link) => (
       <a href={link.href} class:list={[navLinkClasses, link.key === active ? "bg-primary-3 border-primary-6 text-primary-11" : inactiveClasses]}>
-        {link.label}
+        <span class="i18n-en">{link.label.en}</span>
+        <span class="i18n-zh">{link.label.zh}</span>
       </a>
     ))
   }
+
+  <LangToggle />
 </nav>

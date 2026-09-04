@@ -1,14 +1,34 @@
+import { useEffect, useState } from "react";
+
 import { Avatar } from "./ui";
 import { cn } from "./ui/utils.ts";
 import { Lucide } from "./icons";
 
-import { STAFF, PEOPLE, ROLE_DESCRIPTIONS, type StaffPosition, type VacantPosition } from "~/data/staff.ts";
+import { STAFF, PEOPLE, ROLE_NAMES, ROLE_DESCRIPTIONS, type StaffPosition, type VacantPosition } from "~/data/staff.ts";
 
 type Props = {
   year: string;
 };
 
+// <option> text is rendered natively by the browser and ignores CSS on nested
+// elements, so the year dropdown (unlike the rest of the page) needs actual
+// JS-driven language state rather than the usual dual i18n-en/i18n-zh spans.
+const useLang = () => {
+  const [lang, setLang] = useState<"en" | "zh">("en");
+
+  useEffect(() => {
+    setLang((document.documentElement.dataset.lang as "en" | "zh") || "en");
+
+    const handler = (event: Event) => setLang((event as CustomEvent<"en" | "zh">).detail);
+    window.addEventListener("ntuqc:lang-change", handler);
+    return () => window.removeEventListener("ntuqc:lang-change", handler);
+  }, []);
+
+  return lang;
+};
+
 export default ({ year }: Props) => {
+  const lang = useLang();
   const staffYear = STAFF.find((y) => y.year === year) ?? STAFF[0];
 
   const executives = staffYear.positions.filter((position) => position.section === "executive");
@@ -18,10 +38,14 @@ export default ({ year }: Props) => {
     <div className="flex flex-col gap-8 px-3 lg:px-6 py-4">
       <div className="flex flex-col items-start gap-3">
         <div className="flex flex-row items-center justify-between self-stretch gap-4">
-          <h1 className="font-medium text-2xl lg:text-3xl">Staff Team</h1>
+          <h1 className="font-medium text-2xl lg:text-3xl">
+            <span className="i18n-en">Staff Team</span>
+            <span className="i18n-zh">幹部團隊</span>
+          </h1>
 
           <label className="flex items-center gap-2 text-xs text-neutral-10">
-            Year
+            <span className="i18n-en">Year</span>
+            <span className="i18n-zh">學年度</span>
             <select
               value={staffYear.year}
               onChange={(event) => {
@@ -35,26 +59,40 @@ export default ({ year }: Props) => {
             >
               {STAFF.map((y) => (
                 <option key={y.year} value={y.year}>
-                  {y.label}
+                  {y.label[lang]}
                 </option>
               ))}
             </select>
           </label>
         </div>
 
-        <p className="text-sm text-neutral-10">{staffYear.label}</p>
+        <p className="text-sm text-neutral-10">
+          <span className="i18n-en">{staffYear.label.en}</span>
+          <span className="i18n-zh">{staffYear.label.zh}</span>
+        </p>
       </div>
 
-      <StaffSection title="Executive Team" positions={executives} />
+      <StaffSection titleEn="Executive Team" titleZh="執行團隊" positions={executives} />
 
-      {advisors.length > 0 && <StaffSection title="Advisors" positions={advisors} />}
+      {advisors.length > 0 && <StaffSection titleEn="Advisors" titleZh="顧問群" positions={advisors} />}
     </div>
   );
 };
 
-const StaffSection = ({ title, positions }: { title: string; positions: (StaffPosition | VacantPosition)[] }) => (
+const StaffSection = ({
+  titleEn,
+  titleZh,
+  positions,
+}: {
+  titleEn: string;
+  titleZh: string;
+  positions: (StaffPosition | VacantPosition)[];
+}) => (
   <div className="flex flex-col gap-3">
-    <h2 className="font-medium text-xl">{title}</h2>
+    <h2 className="font-medium text-xl">
+      <span className="i18n-en">{titleEn}</span>
+      <span className="i18n-zh">{titleZh}</span>
+    </h2>
     <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
       {positions.map((position) => (
         <li key={"personId" in position ? `${position.role}-${position.personId}` : `${position.role}-vacant`}>
@@ -66,6 +104,7 @@ const StaffSection = ({ title, positions }: { title: string; positions: (StaffPo
 );
 
 const StaffCard = ({ position }: { position: StaffPosition | VacantPosition }) => {
+  const roleName = ROLE_NAMES[position.role];
   const jd = ROLE_DESCRIPTIONS[position.role];
 
   if ("vacant" in position) {
@@ -76,14 +115,23 @@ const StaffCard = ({ position }: { position: StaffPosition | VacantPosition }) =
           "bg-neutral-2/50 border border-dashed border-neutral-5 rounded-3xl"
         )}
       >
-        <h3 className="text-neutral-12 text-sm font-medium">{position.role}</h3>
-        {jd && <p className="text-neutral-10 text-xs">{jd}</p>}
+        <h3 className="text-neutral-12 text-sm font-medium">
+          <span className="i18n-en">{roleName.en}</span>
+          <span className="i18n-zh">{roleName.zh}</span>
+        </h3>
+        {jd && (
+          <p className="text-neutral-10 text-xs">
+            <span className="i18n-en">{jd.en}</span>
+            <span className="i18n-zh">{jd.zh}</span>
+          </p>
+        )}
         <a
           href="https://discord.gg/rXgwHxQNaq"
           target="_blank"
           className="mt-auto text-primary-10 hover:text-primary-11 text-xs font-medium underline underline-offset-2 w-fit"
         >
-          Position open — join our Discord to apply
+          <span className="i18n-en">Position open — join our Discord to apply</span>
+          <span className="i18n-zh">職缺開放中 — 歡迎透過 Discord 應徵</span>
         </a>
       </div>
     );
@@ -99,13 +147,31 @@ const StaffCard = ({ position }: { position: StaffPosition | VacantPosition }) =
         </Avatar>
         <div className="flex flex-col">
           <h3 className="text-neutral-12 text-sm font-medium">{person.name}</h3>
-          <span className="text-neutral-10 text-xs">{position.role}</span>
-          {position.note && <span className="text-primary-10 text-[11px] font-medium">{position.note}</span>}
+          <span className="text-neutral-10 text-xs">
+            <span className="i18n-en">{roleName.en}</span>
+            <span className="i18n-zh">{roleName.zh}</span>
+          </span>
+          {position.note && (
+            <span className="text-primary-10 text-[11px] font-medium">
+              <span className="i18n-en">{position.note.en}</span>
+              <span className="i18n-zh">{position.note.zh}</span>
+            </span>
+          )}
         </div>
       </div>
 
-      {jd && <p className="text-neutral-10 text-xs">{jd}</p>}
-      {person.intro && <p className="text-neutral-11 text-xs italic">&ldquo;{person.intro}&rdquo;</p>}
+      {jd && (
+        <p className="text-neutral-10 text-xs">
+          <span className="i18n-en">{jd.en}</span>
+          <span className="i18n-zh">{jd.zh}</span>
+        </p>
+      )}
+      {person.intro && (
+        <p className="text-neutral-11 text-xs italic">
+          <span className="i18n-en">&ldquo;{person.intro.en}&rdquo;</span>
+          <span className="i18n-zh">&ldquo;{person.intro.zh}&rdquo;</span>
+        </p>
+      )}
     </>
   );
 

@@ -1,0 +1,52 @@
+---
+---
+
+<div id="lang-toggle" class="inline-flex items-center gap-0.5 p-1 bg-neutral-3 border border-neutral-5 rounded-full">
+  <button
+    type="button"
+    data-lang-option="en"
+    aria-label="English"
+    class="lang-option px-3 h-6 inline-flex items-center rounded-full text-xs font-medium transition outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-neutral-7 focus-visible:ring-offset-neutral-1"
+  >
+    EN
+  </button>
+  <button
+    type="button"
+    data-lang-option="zh"
+    aria-label="中文"
+    class="lang-option px-3 h-6 inline-flex items-center rounded-full text-xs font-medium transition outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-neutral-7 focus-visible:ring-offset-neutral-1"
+  >
+    中文
+  </button>
+</div>
+
+<style>
+  .lang-option {
+    color: rgb(var(--neutral-9));
+  }
+  html[data-lang="en"] .lang-option[data-lang-option="en"],
+  html[data-lang="zh"] .lang-option[data-lang-option="zh"] {
+    background: rgb(var(--primary-9));
+    color: white;
+  }
+</style>
+
+<script is:inline>
+  (function () {
+    var container = document.getElementById("lang-toggle");
+    if (!container) return;
+    container.querySelectorAll("[data-lang-option]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var next = btn.getAttribute("data-lang-option");
+        var root = document.documentElement;
+        if (root.dataset.lang === next) return;
+        root.dataset.lang = next;
+        root.lang = next === "zh" ? "zh-Hant" : "en";
+        try {
+          localStorage.setItem("ntuqc-lang", next);
+        } catch (e) {}
+        window.dispatchEvent(new CustomEvent("ntuqc:lang-change", { detail: next }));
+      });
+    });
+  })();
+</script>

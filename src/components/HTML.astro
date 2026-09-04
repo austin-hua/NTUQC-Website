@@ -23,9 +23,21 @@ const ogImageUrl = new URL(image, Astro.site);
 ---
 
 <!-- TODO : html data-theme = "light" or "dark" -->
-<html lang="en" data-theme="dark" {...html}>
+<html lang="en" data-theme="dark" data-lang="en" {...html}>
   <head>
     <meta charset="utf-8" />
+    <script is:inline>
+      // Apply a stored language preference before first paint to avoid a flash of the wrong language.
+      (function () {
+        try {
+          var stored = localStorage.getItem("ntuqc-lang");
+          if (stored === "en" || stored === "zh") {
+            document.documentElement.dataset.lang = stored;
+            document.documentElement.lang = stored === "zh" ? "zh-Hant" : "en";
+          }
+        } catch (e) {}
+      })();
+    </script>
     <link rel="icon" type="image/png" href="/fav.png" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
@@ -51,7 +63,7 @@ const ogImageUrl = new URL(image, Astro.site);
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Noto+Sans+TC:wght@400;500;700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
       rel="stylesheet"
     />
 

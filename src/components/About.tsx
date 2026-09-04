@@ -18,18 +18,22 @@ export default () => {
       </div>
 
       <div className="flex flex-col gap-4">
-        <p>
-          我們的使命是推廣量子科學與技術在台大校園的普及化，讓學生了解量子物理、量子計算等前沿領域，並應用於未來產業與科研發展。我們致力於打造一個跨領域、跨世代的學習與交流平台，讓學生認識志同道合的夥伴、業界先驅、教授與研究者，一同邁向量子時代的未來。
+        <p className="i18n-en">
+          Our mission is to promote the popularization of quantum science and technology on the NTU campus, enabling students to understand
+          cutting-edge fields such as quantum physics and quantum computing, and apply them to future industry and scientific research
+          development. We are committed to creating an interdisciplinary, cross-generational learning and exchange platform, allowing students
+          to meet like-minded partners, industry pioneers, professors, and researchers to advance together into the quantum era.
         </p>
-        <p>
-          Our mission is to promote the popularization of quantum science and technology on the NTU campus, enabling students to understand cutting-edge fields such as quantum physics and quantum computing, and apply them to future industry and scientific research development. We are committed to creating an interdisciplinary, cross-generational learning and exchange platform, allowing students to meet like-minded partners, industry pioneers, professors, and researchers to advance together into the quantum era.
+        <p className="i18n-zh">
+          我們的使命是推廣量子科學與技術在台大校園的普及化，讓學生了解量子物理、量子計算等前沿領域，並應用於未來產業與科研發展。我們致力於打造一個跨領域、跨世代的學習與交流平台，讓學生認識志同道合的夥伴、業界先驅、教授與研究者，一同邁向量子時代的未來。
         </p>
       </div>
 
-      <div className="flex self-stretch justify-end">
-        <Button as="a" href="https://discord.gg/rXgwHxQNaq" target="_blank" aria-label="Discord">
-          <Simple.IconDiscord />
-          Join our Discord
+      <div className="flex self-stretch justify-start">
+        <Button as="a" href="https://discord.gg/rXgwHxQNaq" target="_blank" aria-label="Discord" className="px-5 h-11 text-base">
+          <Simple.IconDiscord size={20} />
+          <span className="i18n-en">Join our Discord</span>
+          <span className="i18n-zh">加入我們的 Discord</span>
         </Button>
       </div>
     </div>

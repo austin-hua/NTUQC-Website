@@ -1,6 +1,8 @@
+import type { LocalizedText } from "./staff.ts";
+
 export type EventItem = {
   title: string;
-  description: string;
+  description: LocalizedText;
   href: string;
   image?: string;
 };
@@ -12,13 +14,19 @@ export const UPCOMING_EVENTS: EventItem[] = [];
 export const PARTNER_EVENTS: EventItem[] = [
   {
     title: "Summit on Quantum AI (SQAI)",
-    description: "An international academic conference on quantum AI, co-organized by NTUQC.",
+    description: {
+      en: "An international academic conference on quantum AI, co-organized by NTUQC.",
+      zh: "由 NTUQC 共同主辦的量子人工智慧國際學術會議。",
+    },
     href: "https://sqai.org",
     image: "/events/sqai.png",
   },
   {
     title: "Qiskit Hackathon Taiwan",
-    description: "A hands-on quantum computing hackathon hosted at NTU.",
+    description: {
+      en: "A hands-on quantum computing hackathon hosted at NTU.",
+      zh: "在台大舉辦的實作型量子計算黑客松。",
+    },
     href: "https://quantum.ntu.edu.tw/?p=10004",
     image: "/events/qiskit-hackathon.jpg",
   },

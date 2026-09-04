@@ -12,7 +12,10 @@ const confirmedPartners = PARTNERS.filter((partner) => partner.status === "confi
     <Nav active="partners" />
 
     <div class="flex flex-col gap-6 px-3 lg:px-6 py-4">
-      <h1 class="font-medium text-2xl lg:text-3xl">Partners</h1>
+      <h1 class="font-medium text-2xl lg:text-3xl">
+        <span class="i18n-en">Partners</span>
+        <span class="i18n-zh">合作夥伴</span>
+      </h1>
 
       {
         confirmedPartners.length > 0 && (
@@ -31,8 +34,18 @@ const confirmedPartners = PARTNERS.filter((partner) => partner.status === "confi
 
                   <div class="flex flex-col gap-2">
                     <h3 class="text-neutral-12 text-lg font-medium">{partner.name}</h3>
-                    {partner.about && <p class="text-neutral-10 text-sm">{partner.about}</p>}
-                    {partner.partnership && <p class="text-neutral-10 text-sm">{partner.partnership}</p>}
+                    {partner.about && (
+                      <p class="text-neutral-10 text-sm">
+                        <span class="i18n-en">{partner.about.en}</span>
+                        <span class="i18n-zh">{partner.about.zh}</span>
+                      </p>
+                    )}
+                    {partner.partnership && (
+                      <p class="text-neutral-10 text-sm">
+                        <span class="i18n-en">{partner.partnership.en}</span>
+                        <span class="i18n-zh">{partner.partnership.zh}</span>
+                      </p>
+                    )}
                   </div>
                 </a>
               </li>
@@ -41,7 +54,10 @@ const confirmedPartners = PARTNERS.filter((partner) => partner.status === "confi
         )
       }
 
-      <p class="text-neutral-10 text-sm text-center py-6">More partners coming soon.</p>
+      <p class="text-neutral-10 text-sm text-center py-6">
+        <span class="i18n-en">More partners coming soon.</span>
+        <span class="i18n-zh">更多合作夥伴即將公佈。</span>
+      </p>
     </div>
   </main>
 </MainLayout>

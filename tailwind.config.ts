@@ -25,7 +25,7 @@ export default {
     extend: {
       fontFamily: {
         // TODO : fonts
-        sans: ["Inter"].concat(defaultTheme.fontFamily.sans),
+        sans: ["Inter", "Noto Sans TC"].concat(defaultTheme.fontFamily.sans),
         mono: ["Roboto Mono"].concat(defaultTheme.fontFamily.mono),
       },
     },

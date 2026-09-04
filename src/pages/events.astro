@@ -20,17 +20,26 @@ const cardClasses = [
 
     <div class="flex flex-col gap-8 px-3 lg:px-6 py-4">
       <div>
-        <h2 class="font-medium text-xl mb-3">Upcoming Events</h2>
+        <h2 class="font-medium text-xl mb-3">
+          <span class="i18n-en">Upcoming Events</span>
+          <span class="i18n-zh">近期活動</span>
+        </h2>
         {
           UPCOMING_EVENTS.length === 0 ? (
-            <p class="text-neutral-10 text-sm">Nothing scheduled yet — check back soon.</p>
+            <p class="text-neutral-10 text-sm">
+              <span class="i18n-en">Nothing scheduled yet — check back soon.</span>
+              <span class="i18n-zh">目前尚無排定活動，敬請期待。</span>
+            </p>
           ) : (
             <ul class="grid grid-cols-1 gap-3 p-1">
               {UPCOMING_EVENTS.map((event) => (
                 <li>
                   <div class="flex flex-col gap-1 px-4 py-3 bg-neutral-2 border border-neutral-4 rounded-3xl">
                     <h3 class="text-neutral-12 text-sm">{event.title}</h3>
-                    <div class="text-neutral-10 text-xs">{event.description}</div>
+                    <div class="text-neutral-10 text-xs">
+                      <span class="i18n-en">{event.description.en}</span>
+                      <span class="i18n-zh">{event.description.zh}</span>
+                    </div>
                   </div>
                 </li>
               ))}
@@ -40,7 +49,10 @@ const cardClasses = [
       </div>
 
       <div>
-        <h2 class="font-medium text-xl mb-3">Partner Events</h2>
+        <h2 class="font-medium text-xl mb-3">
+          <span class="i18n-en">Partner Events</span>
+          <span class="i18n-zh">夥伴活動</span>
+        </h2>
         <ul class="grid grid-cols-1 gap-3 p-1">
           {
             PARTNER_EVENTS.map((event) => (
@@ -61,7 +73,8 @@ const cardClasses = [
                     <div>
                       <h3 class="transition duration-300 group-hover:translate-x-1 text-neutral-12 text-sm">{event.title}</h3>
                       <div class="transition duration-300 group-hover:translate-x-px text-neutral-10 group-hover:text-neutral-11 text-xs">
-                        {event.description}
+                        <span class="i18n-en">{event.description.en}</span>
+                        <span class="i18n-zh">{event.description.zh}</span>
                       </div>
                     </div>
                   </div>

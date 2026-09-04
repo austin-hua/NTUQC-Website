@@ -43,7 +43,10 @@ const socials = [
 export default () => {
   return (
     <div>
-      <h2 className="font-medium text-xl mb-3">Socials</h2>
+      <h2 className="font-medium text-xl mb-3">
+        <span className="i18n-en">Socials</span>
+        <span className="i18n-zh">社群媒體</span>
+      </h2>
       <ul className="flex items-center justify-center gap-3 p-1">
         {socials.map((social) => {
           return (
