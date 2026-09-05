@@ -7,7 +7,8 @@ const SITE = "https://www.ntuqc.com";
 export const GET: APIRoute = () => {
   const staticPaths = ["/", "/our-story/", "/team/", "/partners/", "/events/"];
   const teamYearPaths = STAFF.map((staffYear) => `/team/${staffYear.year}/`);
-  const paths = Array.from(new Set([...staticPaths, ...teamYearPaths]));
+  const eventsYearPaths = STAFF.map((staffYear) => `/events/${staffYear.year}/`);
+  const paths = Array.from(new Set([...staticPaths, ...teamYearPaths, ...eventsYearPaths]));
 
   const urls = paths.map((path) => `  <url><loc>${SITE}${path}</loc></url>`).join("\n");
 

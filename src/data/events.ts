@@ -7,9 +7,6 @@ export type EventItem = {
   image?: string;
 };
 
-// Club-run events (orientation, socials, workshops, etc.). Empty until scheduled.
-export const UPCOMING_EVENTS: EventItem[] = [];
-
 // External conferences and competitions NTUQC co-organizes or participates in.
 export const PARTNER_EVENTS: EventItem[] = [
   {

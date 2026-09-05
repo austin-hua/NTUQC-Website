@@ -1,30 +1,12 @@
-import { useEffect, useState } from "react";
-
 import { Avatar } from "./ui";
 import { cn } from "./ui/utils.ts";
 import { Lucide } from "./icons";
 
+import { useLang } from "~/hooks/useLang.ts";
 import { STAFF, PEOPLE, ROLE_NAMES, ROLE_DESCRIPTIONS, type StaffPosition, type VacantPosition } from "~/data/staff.ts";
 
 type Props = {
   year: string;
-};
-
-// <option> text is rendered natively by the browser and ignores CSS on nested
-// elements, so the year dropdown (unlike the rest of the page) needs actual
-// JS-driven language state rather than the usual dual i18n-en/i18n-zh spans.
-const useLang = () => {
-  const [lang, setLang] = useState<"en" | "zh">("en");
-
-  useEffect(() => {
-    setLang((document.documentElement.dataset.lang as "en" | "zh") || "en");
-
-    const handler = (event: Event) => setLang((event as CustomEvent<"en" | "zh">).detail);
-    window.addEventListener("ntuqc:lang-change", handler);
-    return () => window.removeEventListener("ntuqc:lang-change", handler);
-  }, []);
-
-  return lang;
 };
 
 export default ({ year }: Props) => {

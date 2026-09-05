@@ -1,0 +1,71 @@
+---
+import MainLayout from "~/layouts/MainLayout.astro";
+
+import Nav from "~/components/Nav.astro";
+import ClubEvents from "~/components/ClubEvents.tsx";
+import { Lucide } from "~/components/icons";
+
+import { CURRENT_YEAR, getStaffYear } from "~/data/staff.ts";
+import { PARTNER_EVENTS } from "~/data/events.ts";
+
+const staffYear = getStaffYear(CURRENT_YEAR)!;
+
+const cardClasses = [
+  "group flex items-center justify-between px-4 py-3",
+  "bg-neutral-2 hover:bg-neutral-3",
+  "outline-none border border-neutral-4 hover:border-neutral-6 rounded-3xl",
+  "focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-neutral-7 focus-visible:ring-offset-neutral-1",
+];
+---
+
+<MainLayout
+  title={`Events · ${staffYear.label.en} | NTU Quantum Club`}
+  description={`NTU Quantum Club events for the ${staffYear.label.en}.`}
+>
+  <main class="container p-3 mx-auto max-w-screen-sm min-h-dvh">
+    <Nav active="events" />
+
+    <div class="flex flex-col gap-8 px-3 lg:px-6 py-4">
+      <ClubEvents year={staffYear.year} client:idle />
+
+      <div>
+        <h2 class="font-medium text-xl mb-3">
+          <span class="i18n-en">Partner Events</span>
+          <span class="i18n-zh">夥伴活動</span>
+        </h2>
+        <ul class="grid grid-cols-1 gap-3 p-1">
+          {
+            PARTNER_EVENTS.map((event) => (
+              <li>
+                <a href={event.href} target="_blank" rel="noreferrer" class:list={cardClasses}>
+                  <div class="flex flex-row items-center gap-5 pl-2">
+                    <div class="flex items-center justify-center h-12 shrink-0">
+                      {event.image ? (
+                        <img src={event.image} alt="" class="h-full w-auto max-w-[80px] object-contain rounded-md" />
+                      ) : (
+                        <Lucide.IconGlobe
+                          size={24}
+                          className="transition duration-300 group-hover:-translate-y-1 text-neutral-10 group-hover:text-neutral-11"
+                        />
+                      )}
+                    </div>
+
+                    <div>
+                      <h3 class="transition duration-300 group-hover:translate-x-1 text-neutral-12 text-sm">{event.title}</h3>
+                      <div class="transition duration-300 group-hover:translate-x-px text-neutral-10 group-hover:text-neutral-11 text-xs">
+                        <span class="i18n-en">{event.description.en}</span>
+                        <span class="i18n-zh">{event.description.zh}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <Lucide.IconExternalLink aria-label="Open" className="transition text-neutral-10 group-hover:text-primary-11" />
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </main>
+</MainLayout>
