@@ -147,6 +147,7 @@ const StaffCard = ({ position }: { position: StaffPosition | VacantPosition }) =
   }
 
   const person = PEOPLE[position.personId];
+  const intro = position.intro ?? person.intro;
 
   const content = (
     <>
@@ -175,10 +176,10 @@ const StaffCard = ({ position }: { position: StaffPosition | VacantPosition }) =
           <span className="i18n-zh">{jd.zh}</span>
         </p>
       )}
-      {person.intro && (
+      {intro && (
         <p className="text-neutral-11 text-xs italic">
-          <span className="i18n-en">&ldquo;{person.intro.en}&rdquo;</span>
-          <span className="i18n-zh">&ldquo;{person.intro.zh}&rdquo;</span>
+          <span className="i18n-en">&ldquo;{intro.en}&rdquo;</span>
+          <span className="i18n-zh">&ldquo;{intro.zh}&rdquo;</span>
         </p>
       )}
     </>

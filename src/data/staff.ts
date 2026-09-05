@@ -23,6 +23,10 @@ export type StaffPosition = {
   role: StaffRole;
   section: "executive" | "advisor";
   note?: LocalizedText;
+  // Overrides the person's default intro for this specific position, for
+  // someone whose bio text is tied to a different year/role (e.g. it
+  // references "this academic year" for their current role).
+  intro?: LocalizedText;
 };
 
 export type VacantPosition = {
@@ -203,8 +207,18 @@ export const STAFF: StaffYear[] = [
   {
     year: "114",
     label: { en: "114th Academic Year (2025-2026)", zh: "114學年度（2025-2026）" },
-    positions: [],
-    inactive: true,
+    positions: [
+      {
+        personId: "austin-hua",
+        role: "President",
+        section: "executive",
+        note: { en: "Not formally registered with the university", zh: "未向校方正式立案" },
+        intro: {
+          en: "As NTUQC's president that year, I worked to restructure the club and its staff team even before we were able to formally register with the university.",
+          zh: "身為當年 NTUQC 的社長，我在正式向校方立案之前，便著手重組了社團與幹部團隊。",
+        },
+      },
+    ],
   },
   {
     year: "113",

@@ -31,7 +31,8 @@ export const PARTNERS: Partner[] = [
   {
     name: "NTU CQSE",
     href: "https://cqse.ntu.edu.tw",
-    status: "pending",
+    status: "confirmed",
+    image: "/partners/cqse.png",
     about: {
       en: "The Center for Quantum Science and Engineering at National Taiwan University, an academic research center that coordinates with IBM to advance quantum research, education, and computing access.",
       zh: "國立臺灣大學量子科學與工程研究中心，與 IBM 合作推動量子研究、教育及運算資源的學術研究中心。",
@@ -67,7 +68,8 @@ export const PARTNERS: Partner[] = [
   {
     name: "NTU European Student Association",
     href: "https://www.instagram.com/ntu_esa/",
-    status: "pending",
+    status: "confirmed",
+    image: "/partners/ntuesa.png",
     about: {
       en: "NTU European Student Association (台大歐洲同學會), a student association connecting NTU's European student community.",
       zh: "台大歐洲同學會（NTU European Student Association），連結台大歐洲學生社群的學生組織。",
@@ -76,7 +78,8 @@ export const PARTNERS: Partner[] = [
   {
     name: "IBM Quantum Hub at NTU",
     href: "https://quantum.ntu.edu.tw/",
-    status: "pending",
+    status: "confirmed",
+    image: "/partners/ntuibmq.png",
     about: {
       en: "A research and education platform at NTU, backed by government support, giving Taiwan's academic community cloud access to IBM's quantum computers.",
       zh: "由政府支持、設於台大的研究教育平台，讓台灣學術界能透過雲端使用 IBM 的量子電腦。",
@@ -94,7 +97,8 @@ export const PARTNERS: Partner[] = [
   {
     name: "QISCA (Quantum Information Science Club Association)",
     href: "https://qisca.org",
-    status: "pending",
+    status: "confirmed",
+    image: "/partners/qisca.png",
     about: {
       en: "A nationwide network of student-led quantum clubs across South Korea, spanning universities including Seoul National University, KAIST, Korea University, Yonsei, DGIST, and Kyung Hee University.",
       zh: "由南韓多所大學學生自主成立的量子社團聯盟，成員涵蓋首爾大學、KAIST、高麗大學、延世大學、大邱慶北科學技術院（DGIST）與慶熙大學等校。",
