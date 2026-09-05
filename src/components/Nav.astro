@@ -25,15 +25,17 @@ const navLinkClasses = [
 const inactiveClasses = "bg-neutral-2 hover:bg-neutral-3 border-neutral-4 hover:border-neutral-6 text-neutral-10 hover:text-neutral-11";
 ---
 
-<nav class="flex items-center gap-2 py-4 overflow-x-auto no-scrollbar justify-start sm:justify-center sm:flex-wrap">
-  {
-    links.map((link) => (
-      <a href={link.href} class:list={[navLinkClasses, link.key === active ? "bg-primary-3 border-primary-6 text-primary-11" : inactiveClasses]}>
-        <span class="i18n-en">{link.label.en}</span>
-        <span class="i18n-zh">{link.label.zh}</span>
-      </a>
-    ))
-  }
+<div class="flex flex-col items-center gap-2 py-4">
+  <nav class="flex items-center gap-2 overflow-x-auto no-scrollbar justify-start sm:justify-center sm:flex-wrap w-full">
+    {
+      links.map((link) => (
+        <a href={link.href} class:list={[navLinkClasses, link.key === active ? "bg-primary-3 border-primary-6 text-primary-11" : inactiveClasses]}>
+          <span class="i18n-en">{link.label.en}</span>
+          <span class="i18n-zh">{link.label.zh}</span>
+        </a>
+      ))
+    }
+  </nav>
 
   <LangToggle />
-</nav>
+</div>
