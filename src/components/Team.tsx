@@ -4,8 +4,7 @@ import { Lucide } from "./icons";
 
 import { useLang } from "~/hooks/useLang.ts";
 import { STAFF, PEOPLE, ROLE_NAMES, ROLE_DESCRIPTIONS, CURRENT_YEAR, type StaffPosition, type VacantPosition } from "~/data/staff.ts";
-
-const APPLY_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSflTuozgkncE9890t-uhRoetRpwXMJrCCHxCDq4z4CHpsGInA/viewform";
+import { STAFF_APPLICATION_FORM_URL } from "~/data/links.ts";
 
 type Props = {
   year: string;
@@ -56,7 +55,7 @@ export default ({ year }: Props) => {
         </p>
 
         {year === CURRENT_YEAR && (
-          <Button as="a" href={APPLY_FORM_URL} target="_blank" rel="noreferrer" className="px-5 h-11 text-base">
+          <Button as="a" href={STAFF_APPLICATION_FORM_URL} target="_blank" rel="noreferrer" className="px-5 h-11 text-base">
             <span className="i18n-en">Apply to Join Our Staff Team</span>
             <span className="i18n-zh">申請加入幹部團隊</span>
           </Button>

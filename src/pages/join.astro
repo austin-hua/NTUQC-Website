@@ -1,0 +1,74 @@
+---
+import MainLayout from "~/layouts/MainLayout.astro";
+
+import Nav from "~/components/Nav.astro";
+import { Lucide } from "~/components/icons";
+import { STAFF_APPLICATION_FORM_URL, MEMBER_APPLICATION_FORM_URL } from "~/data/links.ts";
+
+const cardClasses = [
+  "group flex flex-col items-start gap-1 px-5 py-5",
+  "bg-neutral-2 hover:bg-neutral-3",
+  "outline-none border border-neutral-4 hover:border-neutral-6 rounded-3xl",
+  "focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-neutral-7 focus-visible:ring-offset-neutral-1",
+];
+---
+
+<MainLayout
+  title="Join Us | NTU Quantum Club"
+  description="Join NTU Quantum Club as a member or apply to join our staff team."
+>
+  <main class="container p-3 mx-auto max-w-screen-sm min-h-dvh">
+    <Nav active="join" />
+
+    <div class="flex flex-col gap-6 px-3 lg:px-6 py-4">
+      <h1 class="font-medium text-2xl lg:text-3xl">
+        <span class="i18n-en">Join Us</span>
+        <span class="i18n-zh">加入我們</span>
+      </h1>
+
+      <img src="/join/hero.jpg" alt="NTUQC members holding join flyers" class="w-full rounded-3xl border border-neutral-4 object-cover" />
+
+      <p class="text-neutral-11 text-sm">
+        <span class="i18n-en">
+          Any NTU student who supports our mission can become a member. Members get priority registration for events and a
+          vote in club elections, for a small semester due (NT$300 minimum). Staff members are exempt from the membership
+          fee.
+        </span>
+        <span class="i18n-zh">
+          任何認同本社宗旨的台大學生皆可加入成為社員。社員享有活動優先報名資格與選舉投票權，每學期需繳交至少
+          300 元社費；幹部則免繳社費。
+        </span>
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <a href={MEMBER_APPLICATION_FORM_URL} target="_blank" rel="noreferrer" class:list={cardClasses}>
+          <div class="flex items-center justify-between self-stretch">
+            <span class="text-neutral-12 text-base font-medium">
+              <span class="i18n-en">Become a Member</span>
+              <span class="i18n-zh">社員報名</span>
+            </span>
+            <Lucide.IconExternalLink aria-hidden className="transition text-neutral-10 group-hover:text-primary-11" />
+          </div>
+          <p class="text-neutral-10 text-xs">
+            <span class="i18n-en">Sign up as a general club member.</span>
+            <span class="i18n-zh">報名成為一般社員。</span>
+          </p>
+        </a>
+
+        <a href={STAFF_APPLICATION_FORM_URL} target="_blank" rel="noreferrer" class:list={cardClasses}>
+          <div class="flex items-center justify-between self-stretch">
+            <span class="text-neutral-12 text-base font-medium">
+              <span class="i18n-en">Apply for Staff</span>
+              <span class="i18n-zh">幹部申請</span>
+            </span>
+            <Lucide.IconExternalLink aria-hidden className="transition text-neutral-10 group-hover:text-primary-11" />
+          </div>
+          <p class="text-neutral-10 text-xs">
+            <span class="i18n-en">Help build our community and organize club activities.</span>
+            <span class="i18n-zh">協助建立社群並籌辦社團活動。</span>
+          </p>
+        </a>
+      </div>
+    </div>
+  </main>
+</MainLayout>

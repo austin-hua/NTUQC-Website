@@ -5,7 +5,7 @@ import { STAFF } from "~/data/staff.ts";
 const SITE = "https://www.ntuqc.com";
 
 export const GET: APIRoute = () => {
-  const staticPaths = ["/", "/our-story/", "/team/", "/partners/", "/events/"];
+  const staticPaths = ["/", "/join/", "/our-story/", "/team/", "/partners/", "/events/"];
   const teamYearPaths = STAFF.map((staffYear) => `/team/${staffYear.year}/`);
   const eventsYearPaths = STAFF.map((staffYear) => `/events/${staffYear.year}/`);
   const paths = Array.from(new Set([...staticPaths, ...teamYearPaths, ...eventsYearPaths]));
