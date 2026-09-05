@@ -88,7 +88,8 @@ export const PARTNERS: Partner[] = [
   {
     name: "NTU Consensus Labs (NTUCL)",
     href: "https://www.csie.ntu.edu.tw/~liao/",
-    status: "pending",
+    status: "confirmed",
+    image: "/partners/ntucl.png",
     about: {
       en: "Professor Shih-Wei Liao's lab at NTU CSIE, researching quantum computing and, more recently, neuroengineering.",
       zh: "廖世偉教授於台大資工系的研究實驗室，研究領域包含量子計算，近期也開始投入神經工程研究。",
