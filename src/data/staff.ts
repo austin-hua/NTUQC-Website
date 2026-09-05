@@ -172,7 +172,7 @@ export const PEOPLE: Record<string, Person> = {
     image: "/staff/jordan-chiao.jpg",
   },
   "chengwei-huang": {
-    name: "黃承瑋",
+    name: "Cesare Huang",
     image: "/staff/chengwei-huang.jpg",
   },
   "austin-hua": {
