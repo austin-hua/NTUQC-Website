@@ -1,4 +1,3 @@
-import { IconButton } from "./ui";
 import { cn } from "./ui/utils.ts";
 import { Lucide, Simple } from "./icons";
 
@@ -30,42 +29,44 @@ export default () => {
       <ul className="grid grid-cols-1 gap-3 p-1">
         {projects.map((project) => {
           return (
-            <li
-              key={project.title.en}
-              className={cn(
-                "group",
-                "flex items-center justify-between px-4 py-3",
-                "bg-neutral-2 hover:bg-neutral-3",
-                "outline-none border border-neutral-4 hover:border-neutral-6 rounded-3xl",
-                "focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-neutral-7 focus-visible:ring-offset-neutral-1"
-              )}
-            >
-              <div className="flex flex-row items-stretch gap-5 pl-2">
-                <div className="flex items-center justify-center">
-                  <project.icon
-                    size={24}
-                    className="transition duration-300 group-hover:-translate-y-1 text-neutral-10 group-hover:text-neutral-11"
-                  />
-                </div>
+            <li key={project.title.en}>
+              <a
+                href={project.url}
+                target="_blank"
+                rel="noreferrer"
+                className={cn(
+                  "group",
+                  "flex items-center justify-between px-4 py-3",
+                  "bg-neutral-2 hover:bg-neutral-3",
+                  "outline-none border border-neutral-4 hover:border-neutral-6 rounded-3xl",
+                  "focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-neutral-7 focus-visible:ring-offset-neutral-1"
+                )}
+              >
+                <div className="flex flex-row items-stretch gap-5 pl-2">
+                  <div className="flex items-center justify-center">
+                    <project.icon
+                      size={24}
+                      className="transition duration-300 group-hover:-translate-y-1 text-neutral-10 group-hover:text-neutral-11"
+                    />
+                  </div>
 
-                <div>
-                  <h3 className="transition duration-300 group-hover:translate-x-1 text-neutral-12 text-sm">
-                    <span className="i18n-en">{project.title.en}</span>
-                    <span className="i18n-zh">{project.title.zh}</span>
-                  </h3>
-                  <div className="transition duration-300 group-hover:translate-x-px text-neutral-10 group-hover:text-neutral-11 text-xs">
-                    <span className="i18n-en">{project.description.en}</span>
-                    <span className="i18n-zh">{project.description.zh}</span>
+                  <div>
+                    <h3 className="transition duration-300 group-hover:translate-x-1 text-neutral-12 text-sm">
+                      <span className="i18n-en">{project.title.en}</span>
+                      <span className="i18n-zh">{project.title.zh}</span>
+                    </h3>
+                    <div className="transition duration-300 group-hover:translate-x-px text-neutral-10 group-hover:text-neutral-11 text-xs">
+                      <span className="i18n-en">{project.description.en}</span>
+                      <span className="i18n-zh">{project.description.zh}</span>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <IconButton as="a" role="button" href={project.url} className="group/icon" target="_blank" aria-label="Open">
                 <Lucide.IconExternalLink
-                  aria-label="Open"
-                  className="transition text-neutral-10 group-hover:text-primary-11 group-focus-visible/icon:text-primary-11"
+                  aria-hidden
+                  className="transition text-neutral-10 group-hover:text-primary-11"
                 />
-              </IconButton>
+              </a>
             </li>
           );
         })}
