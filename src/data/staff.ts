@@ -7,7 +7,8 @@ export type StaffRole =
   | "Competitions Chair"
   | "Events Chair"
   | "Club Advisor"
-  | "Advisor";
+  | "Advisor"
+  | "Co-Founder";
 
 export type LocalizedText = { en: string; zh: string };
 
@@ -53,6 +54,7 @@ export const ROLE_NAMES: Record<StaffRole, LocalizedText> = {
   "Events Chair": { en: "Events Chair", zh: "活動長" },
   "Club Advisor": { en: "Club Advisor", zh: "指導教授" },
   Advisor: { en: "Advisor", zh: "顧問" },
+  "Co-Founder": { en: "Co-Founder", zh: "共同創辦人" },
 };
 
 // Job descriptions sourced from the NTUQC constitution (Articles 12-20).
@@ -92,6 +94,10 @@ export const ROLE_DESCRIPTIONS: Record<StaffRole, LocalizedText> = {
   Advisor: {
     en: "A senior advisor who offers guidance and mentorship to the club's officers, drawing on prior experience with NTUQC. Helps maintain continuity and institutional knowledge as leadership changes each academic year.",
     zh: "資深顧問，憑藉過往在 NTUQC 的經驗為幹部提供指導與建議，協助在每學年幹部交接之際維持社團的傳承與經驗延續。",
+  },
+  "Co-Founder": {
+    en: "One of the students who co-founded the club alongside its founding president.",
+    zh: "與創社社長一同創立社團的共同創辦人之一。",
   },
 };
 
@@ -160,6 +166,14 @@ export const PEOPLE: Record<string, Person> = {
   "chao-hsien": {
     name: "Chao Hsien",
     image: DEFAULT_IMAGE,
+  },
+  "jordan-chiao": {
+    name: "Jordan Chiao",
+    image: "/staff/jordan-chiao.jpg",
+  },
+  "chengwei-huang": {
+    name: "黃承瑋",
+    image: "/staff/chengwei-huang.jpg",
   },
   "austin-hua": {
     name: "Austin Hua",
@@ -236,6 +250,8 @@ export const STAFF: StaffYear[] = [
         section: "executive",
         note: { en: "Founding President", zh: "創社社長" },
       },
+      { personId: "jordan-chiao", role: "Co-Founder", section: "executive" },
+      { personId: "chengwei-huang", role: "Co-Founder", section: "executive" },
       { personId: "hsi-sheng-goan", role: "Club Advisor", section: "advisor" },
     ],
   },
