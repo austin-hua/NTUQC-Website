@@ -1,6 +1,6 @@
 import { IconButton } from "./ui";
 import { cn } from "./ui/utils.ts";
-import { Lucide } from "./icons";
+import { Lucide, Simple } from "./icons";
 
 const projects = [
   {
@@ -8,6 +8,15 @@ const projects = [
     description: { en: "Website for our club", zh: "我們社團的網站" },
     icon: Lucide.IconGlobe,
     url: "https://github.com/austin-hua/NTUQC-Website",
+  },
+  {
+    title: { en: "Quantum Continual Learning", zh: "量子持續學習（QCL）" },
+    description: {
+      en: "2nd place at the Qiskit Hackathon — mitigating catastrophic forgetting in variational quantum circuits.",
+      zh: "Qiskit Hackathon 亞軍作品——緩解變分量子電路中的災難性遺忘問題。",
+    },
+    icon: Simple.IconGitHub,
+    url: "https://github.com/rich7420/qiskit-hackthon-2026",
   },
 ];
 

@@ -4,9 +4,9 @@ import { Simple } from "./icons";
 // NTU Quantum Club social links
 const socials = [
   {
-    href: "mailto:ntuquantum@gmail.com",
-    name: "Email",
-    icon: Simple.IconEmail,
+    href: "https://www.threads.com/@ntuquantum",
+    name: "Threads",
+    icon: Simple.IconThreads,
   },
   {
     href: "https://www.linkedin.com/company/ntuqc",
@@ -34,9 +34,9 @@ const socials = [
     icon: Simple.IconYoutube,
   },
   {
-    href: "https://www.threads.com/@ntuquantum",
-    name: "Threads",
-    icon: Simple.IconThreads,
+    href: "mailto:ntuquantum@gmail.com",
+    name: "Email",
+    icon: Simple.IconEmail,
   },
 ];
 
