@@ -1,9 +1,11 @@
-import { Avatar } from "./ui";
+import { Avatar, Button } from "./ui";
 import { cn } from "./ui/utils.ts";
 import { Lucide } from "./icons";
 
 import { useLang } from "~/hooks/useLang.ts";
-import { STAFF, PEOPLE, ROLE_NAMES, ROLE_DESCRIPTIONS, type StaffPosition, type VacantPosition } from "~/data/staff.ts";
+import { STAFF, PEOPLE, ROLE_NAMES, ROLE_DESCRIPTIONS, CURRENT_YEAR, type StaffPosition, type VacantPosition } from "~/data/staff.ts";
+
+const APPLY_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSflTuozgkncE9890t-uhRoetRpwXMJrCCHxCDq4z4CHpsGInA/viewform";
 
 type Props = {
   year: string;
@@ -52,6 +54,13 @@ export default ({ year }: Props) => {
           <span className="i18n-en">{staffYear.label.en}</span>
           <span className="i18n-zh">{staffYear.label.zh}</span>
         </p>
+
+        {year === CURRENT_YEAR && (
+          <Button as="a" href={APPLY_FORM_URL} target="_blank" rel="noreferrer" className="px-5 h-11 text-base">
+            <span className="i18n-en">Apply to Join Our Staff Team</span>
+            <span className="i18n-zh">申請加入幹部團隊</span>
+          </Button>
+        )}
       </div>
 
       {staffYear.inactive ? (
