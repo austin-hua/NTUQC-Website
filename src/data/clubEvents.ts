@@ -15,6 +15,10 @@ export type ClubEvent = {
   date: string;
   description?: LocalizedText;
   status?: EventStatus;
+  // Marks events that haven't happened yet, whose dates are still placeholders
+  // pending confirmation from staff/partners. Events already in the past are
+  // settled and don't need this.
+  tentative?: boolean;
 };
 
 // Sourced from the club's internal 115-1 Master Event Schedule.
@@ -94,6 +98,7 @@ export const CLUB_EVENTS_BY_YEAR: Record<string, ClubEvent[]> = {
         zh: "全校性社團聯展，招募新社員並推廣 NTUQC。",
       },
       status: "confirmed",
+      tentative: true,
     },
     {
       title: { en: "NTUQC Orientation and Introduction to Quantum", zh: "NTUQC 迎新暨量子計算簡介" },
@@ -103,6 +108,7 @@ export const CLUB_EVENTS_BY_YEAR: Record<string, ClubEvent[]> = {
         zh: "迎新活動，並搭配量子概念入門講座。",
       },
       status: "confirmed",
+      tentative: true,
     },
     {
       title: { en: "Quantum AI", zh: "量子人工智慧專題演講" },
@@ -112,10 +118,12 @@ export const CLUB_EVENTS_BY_YEAR: Record<string, ClubEvent[]> = {
         zh: "由 Mark Chen 與 Austin Hua 主講，探討量子計算與人工智慧交會的專題演講。",
       },
       status: "confirmed",
+      tentative: true,
     },
     {
       title: { en: "STEM Department Class", zh: "技術部社課" },
       date: "10/14/2026",
+      tentative: true,
     },
     {
       title: { en: "Midterm Exam Week", zh: "期中考週" },
@@ -125,6 +133,7 @@ export const CLUB_EVENTS_BY_YEAR: Record<string, ClubEvent[]> = {
         zh: "國立臺灣大學期中考試週，無社團活動。",
       },
       status: "blockout",
+      tentative: true,
     },
     {
       title: { en: "Qiskit Fall Fest", zh: "Qiskit 秋季狂歡節" },
@@ -134,14 +143,17 @@ export const CLUB_EVENTS_BY_YEAR: Record<string, ClubEvent[]> = {
         zh: "可能作為 IBM 全球 Qiskit Fall Fest 系列的延伸活動。",
       },
       status: "pending",
+      tentative: true,
     },
     {
       title: { en: "Guest Speaker Class", zh: "外部講者" },
       date: "11/4/2026",
+      tentative: true,
     },
     {
       title: { en: "Guest Speaker Class", zh: "外部講者" },
       date: "11/18/2026",
+      tentative: true,
     },
     {
       title: { en: "End-of-Semester Exchange Mixer", zh: "期末交流期末聚會" },
@@ -151,11 +163,13 @@ export const CLUB_EVENTS_BY_YEAR: Record<string, ClubEvent[]> = {
         zh: "期末社交聚會，包含交流與專題成果分享。",
       },
       status: "confirmed",
+      tentative: true,
     },
     {
       title: { en: "Finals Exam Week", zh: "期末考週" },
       date: "12/21/2026 - 12/25/2026",
       status: "blockout",
+      tentative: true,
     },
   ],
   "114": [],

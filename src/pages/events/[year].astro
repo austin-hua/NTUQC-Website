@@ -31,8 +31,6 @@ const cardClasses = [
     <Nav active="events" />
 
     <div class="flex flex-col gap-8 px-3 lg:px-6 py-4">
-      <ClubEvents year={staffYear.year} client:idle />
-
       <div>
         <h2 class="font-medium text-xl mb-3">
           <span class="i18n-en">Partner Events</span>
@@ -71,6 +69,8 @@ const cardClasses = [
           }
         </ul>
       </div>
+
+      <ClubEvents year={staffYear.year} client:idle />
     </div>
   </main>
 </MainLayout>
