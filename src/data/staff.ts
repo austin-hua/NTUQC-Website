@@ -17,6 +17,7 @@ export type Person = {
   image: string;
   intro?: LocalizedText;
   link?: string;
+  affiliation?: string;
 };
 
 export type StaffPosition = {
@@ -110,6 +111,8 @@ export const PEOPLE: Record<string, Person> = {
   "po-sheng-huang": {
     name: "Po-Sheng Huang",
     image: DEFAULT_IMAGE,
+    link: "https://www.linkedin.com/in/%E6%9F%8F%E5%8B%9D-%E9%BB%83-917a61206/",
+    affiliation: "NTU BST",
     intro: {
       en: "Hi, I'm Po-Sheng! I'm a huge fan of bubble tea and late-night debugging sessions. Looking forward to a great year of quantum exploration with everyone.",
       zh: "大家好，我是柏昇！我超愛珍珠奶茶，也很享受半夜除錯的時光。期待和大家一起展開精彩的量子探索之旅！",
@@ -117,15 +120,19 @@ export const PEOPLE: Record<string, Person> = {
   },
   "katie-chao": {
     name: "Katie Chao",
-    image: DEFAULT_IMAGE,
+    image: "/staff/katie-chao.jpg",
+    link: "https://www.linkedin.com/in/katie-chao-42a635289/",
+    affiliation: "NTU Chemistry",
     intro: {
       en: "Hey there, I'm Katie! When I'm not in class you can probably find me at the climbing gym. Excited to help make this year's events unforgettable.",
       zh: "大家好，我是Katie！沒有課的時候，通常可以在攀岩館找到我。很期待這學年能把每場活動辦得令人難忘！",
     },
   },
   maxence: {
-    name: "Maxence",
-    image: DEFAULT_IMAGE,
+    name: "Maxence Francois",
+    image: "/staff/maxence.jpg",
+    link: "https://phys.ncts.ntu.edu.tw/en/people/research_staff/Arutkin-Maxence-Matthieu-Francois-%E9%98%BF%E4%BA%92%E9%87%91-29324080",
+    affiliation: "NCTS Physics",
     intro: {
       en: "Hi, I'm Maxence! I got hooked on quantum computing after my first qubit simulation crashed spectacularly. Can't wait to share that same spark with new members.",
       zh: "嗨，我是Maxence！我第一次做量子位元模擬就慘烈當機，卻也因此徹底愛上了量子計算。迫不及待想把這份熱情分享給新社員！",
@@ -133,31 +140,39 @@ export const PEOPLE: Record<string, Person> = {
   },
   "haocheng-kan": {
     name: "Haocheng Kan",
-    image: DEFAULT_IMAGE,
+    image: "/staff/haocheng-kan.jpg",
+    link: "https://www.linkedin.com/in/haocheng-kan-b59b3b92/",
+    affiliation: "Peking University",
     intro: {
-      en: "Hi, I'm Haocheng! I spend more time picking fonts than I probably should. Let's make NTUQC's socials the best-looking feed on campus.",
-      zh: "嗨，我是浩正！我花在挑選字體上的時間可能有點太多了。讓我們把 NTUQC 的社群經營成校園裡最好看的版面吧！",
+      en: "My background is in AI, federated learning, privacy-preserving machine learning, and computer vision, and I'm currently exploring Quantum Machine Learning (QML). This year I hope to contribute to NTUQC through QML learning, technical projects, and interdisciplinary collaboration between quantum computing and AI.",
+      zh: "我的背景涵蓋人工智慧、聯邦學習、隱私保護機器學習與電腦視覺，目前正在探索量子機器學習（QML）。今年我希望透過 QML 學習、技術專案，以及量子計算與 AI 的跨領域合作，為 NTUQC 做出貢獻。",
     },
   },
   "christian-rioflorido": {
     name: "Christian Rioflorido",
     image: DEFAULT_IMAGE,
+    link: "https://www.linkedin.com/in/clprioflorido/",
+    affiliation: "CYCU EE",
     intro: {
-      en: "Hey, I'm Christian! I once stayed up 30 hours straight for a hackathon and would happily do it again. Ready to help our team crush the next Qiskit Hackathon.",
-      zh: "嗨，我是Christian！我曾經為了一場黑客松連續熬夜30小時，而且還很樂意再來一次。準備好帶領大家在下一屆 Qiskit Hackathon 大展身手！",
+      en: "I'm a PhD candidate from Chung Yuan Christian University, working on my dissertation in quantum machine learning and quantum computing. I lead the club's Competitions Department, eager to plan competitions and train our members to win.",
+      zh: "我是中原大學的博士生，博士論文聚焦於量子機器學習與量子計算。我負責社團的競賽部門，致力於規劃競賽並培訓社員取得佳績。",
     },
   },
   "robin-fischer": {
     name: "Robin Fischer",
-    image: DEFAULT_IMAGE,
+    image: "/staff/robin-fischer.jpg",
+    link: "https://github.com/RobinFischer",
+    affiliation: "NTU CSIE",
     intro: {
-      en: "Hi, I'm Robin! Ask me about the best boba spots near campus, I have strong opinions. Excited to plan events that bring our whole community together.",
-      zh: "嗨，我是Robin！歡迎問我校園附近哪裡的珍奶最好喝，我有非常堅定的意見。很期待規劃能凝聚整個社群的活動！",
+      en: "I'm a PhD candidate in Computer Science at NTU researching human-centered AI, augmented reality, and human-computer interaction. Beyond research, I'm active in NTUESA and NTUQC organizing cultural and international community events, and I love building cross-cultural connections.",
+      zh: "我是台大資工博士生，研究方向為人本人工智慧、擴增實境與人機互動。除了研究之外，我也積極參與 NTUESA 與 NTUQC，籌辦跨文化交流活動，熱衷於促進國際學生與在地學生之間的連結。",
     },
   },
   "hsi-sheng-goan": {
     name: "Professor Hsi-Sheng Goan",
-    image: DEFAULT_IMAGE,
+    image: "/staff/goan.jpg",
+    link: "https://www.phys.ntu.edu.tw/enphysics/goan.html",
+    affiliation: "NTU Physics",
     intro: {
       en: "I've spent my career researching quantum information and open quantum systems, and I'm delighted to support NTUQC's students as they explore this field. Looking forward to another exciting year of ideas and collaboration.",
       zh: "我的學術生涯致力於量子資訊與開放量子系統的研究，很樂意支持 NTUQC 的同學們探索這個領域。期待新的一年能有更多精彩的想法交流與合作。",
@@ -179,6 +194,7 @@ export const PEOPLE: Record<string, Person> = {
     name: "Austin Hua",
     image: "/staff/austin-hua.jpg",
     link: "https://www.linkedin.com/in/austin-hua/",
+    affiliation: "NTU CSIE",
     intro: {
       en: "Hi! I am Austin, an NTU CSIE MS graduate and co-founder of NTUQC. For this academic year I am assisting the President and Vice President in forming strategic partnerships in both academia and industry and contributing to the overall direction, development, and growth of the club. Feel free to reach out to me on my provided LinkedIn if you have any questions.",
       zh: "大家好，我是Austin，台大資工所碩士畢業，也是 NTUQC 的共同創辦人。這學年我協助社長與副社長建立學術界與產業界的策略夥伴關係，並參與社團整體方向、發展與成長的規劃。若有任何問題，歡迎透過我的 LinkedIn 與我聯繫。",
@@ -186,10 +202,12 @@ export const PEOPLE: Record<string, Person> = {
   },
   "mark-chen": {
     name: "Mark Chen",
-    image: DEFAULT_IMAGE,
+    image: "/staff/mark-chen.jpg",
+    link: "https://www.linkedin.com/in/mark-chen-next/",
+    affiliation: "UoL CS",
     intro: {
-      en: "Hey, I'm Mark! I'm always up for a good conversation about quantum algorithms or terrible puns. Glad to keep supporting NTUQC from the sidelines.",
-      zh: "嗨，我是Mark！我隨時樂於聊量子演算法，或是講一些很爛的雙關笑話。很高興能持續在幕後支持 NTUQC。",
+      en: "I'm an AI researcher and entrepreneur working at the intersection of AI, quantum computing, and autonomous systems, and the Founder/CEO of Mindify AI. My research spans quantum machine learning, large language models, and AI agents, and at NTUQC I'm excited to explore how quantum computing can power the next generation of intelligent systems.",
+      zh: "我是一名 AI 研究者與創業者，專注於人工智慧、量子計算與自主系統的交集，同時也是 Mindify AI 的創辦人兼執行長。我的研究領域涵蓋量子機器學習、大型語言模型與 AI 代理，在 NTUQC 我很期待探索量子計算如何驅動下一代智慧系統。",
     },
   },
 };

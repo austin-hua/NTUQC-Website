@@ -150,6 +150,7 @@ const StaffCard = ({ position }: { position: StaffPosition | VacantPosition }) =
           <span className="text-neutral-10 text-xs">
             <span className="i18n-en">{roleName.en}</span>
             <span className="i18n-zh">{roleName.zh}</span>
+            {person.affiliation && <> · {person.affiliation}</>}
           </span>
           {position.note && (
             <span className="text-primary-10 text-[11px] font-medium">
