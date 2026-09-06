@@ -110,7 +110,7 @@ const DEFAULT_IMAGE = "/staff/default-avatar.svg";
 export const PEOPLE: Record<string, Person> = {
   "po-sheng-huang": {
     name: "Po-Sheng Huang",
-    image: DEFAULT_IMAGE,
+    image: "/staff/po-sheng-huang.jpg",
     link: "https://www.linkedin.com/in/%E6%9F%8F%E5%8B%9D-%E9%BB%83-917a61206/",
     affiliation: "NTU BST",
     intro: {
@@ -150,7 +150,7 @@ export const PEOPLE: Record<string, Person> = {
   },
   "christian-rioflorido": {
     name: "Christian Rioflorido",
-    image: DEFAULT_IMAGE,
+    image: "/staff/christian-rioflorido.jpg",
     link: "https://www.linkedin.com/in/clprioflorido/",
     affiliation: "CYCU EE",
     intro: {
