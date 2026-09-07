@@ -2,6 +2,7 @@ export type StaffRole =
   | "President"
   | "Vice President"
   | "STEM Chair"
+  | "STEM Member"
   | "PR Chair"
   | "Administration Chair"
   | "Competitions Chair"
@@ -49,6 +50,7 @@ export const ROLE_NAMES: Record<StaffRole, LocalizedText> = {
   President: { en: "President", zh: "社長" },
   "Vice President": { en: "Vice President", zh: "副社長" },
   "STEM Chair": { en: "STEM Chair", zh: "學術長" },
+  "STEM Member": { en: "STEM Member", zh: "學術部部員" },
   "PR Chair": { en: "PR Chair", zh: "公關長" },
   "Administration Chair": { en: "Administration Chair", zh: "行政長" },
   "Competitions Chair": { en: "Competitions Chair", zh: "競賽長" },
@@ -76,6 +78,10 @@ export const ROLE_DESCRIPTIONS: Record<StaffRole, LocalizedText> = {
     en: "Leads graphic design and manages the club's presence across social platforms like Facebook and Instagram. Writes promotional content and drives officer and member recruitment campaigns.",
     zh: "負責平面設計，並管理社團在 Facebook、Instagram 等社群平台的形象。撰寫宣傳內容，並推動幹部與社員招募活動。",
   },
+  "STEM Member": {
+    en: "Supports the STEM Chair in promoting quantum science and computing knowledge on campus, helping run technical lectures, courses, and workshops, and assisting members with learning and research consultation.",
+    zh: "協助學術長在校園推廣量子科學與量子計算知識，協辦技術講座、課程與工作坊，並協助社員解決學習與研究上的問題。",
+  },
   "Administration Chair": {
     en: "Keeps the club running behind the scenes: recording attendance, meeting minutes, and General Assemblies, and handling venue reservations. Manages financial planning and member records.",
     zh: "在幕後維持社團運作：記錄出席、會議紀錄與社員大會，並處理場地借用。負責財務規劃與社員資料管理。",
@@ -101,8 +107,6 @@ export const ROLE_DESCRIPTIONS: Record<StaffRole, LocalizedText> = {
     zh: "與創社社長一同創立社團的共同創辦人之一。",
   },
 };
-
-const DEFAULT_IMAGE = "/staff/default-avatar.svg";
 
 // People are keyed by id so the same person can hold different roles in
 // different years (e.g. a past president who is now an advisor) without
@@ -178,10 +182,6 @@ export const PEOPLE: Record<string, Person> = {
       zh: "我的學術生涯致力於量子資訊與開放量子系統的研究，很樂意支持 NTUQC 的同學們探索這個領域。期待新的一年能有更多精彩的想法交流與合作。",
     },
   },
-  "chao-hsien": {
-    name: "Chao Hsien",
-    image: DEFAULT_IMAGE,
-  },
   "jordan-chiao": {
     name: "Jordan Chiao",
     image: "/staff/jordan-chiao.jpg",
@@ -198,6 +198,16 @@ export const PEOPLE: Record<string, Person> = {
     intro: {
       en: "Hi! I am Austin, an NTU CSIE MS graduate and co-founder of NTUQC. For this academic year I am assisting the President and Vice President in forming strategic partnerships in both academia and industry and contributing to the overall direction, development, and growth of the club. Feel free to reach out to me on my provided LinkedIn if you have any questions.",
       zh: "大家好，我是Austin，台大資工所碩士畢業，也是 NTUQC 的共同創辦人。這學年我協助社長與副社長建立學術界與產業界的策略夥伴關係，並參與社團整體方向、發展與成長的規劃。若有任何問題，歡迎透過我的 LinkedIn 與我聯繫。",
+    },
+  },
+  "martin-wu": {
+    name: "Martin Wu",
+    image: "/staff/martin-wu.jpg",
+    link: "https://github.com/mnsh0409",
+    affiliation: "Academia Sinica",
+    intro: {
+      en: "I'm a PhD candidate in Computer Science (expected to graduate in 2026) with a Master's in Genomics and Bioinformatics, focused on the intersection of AI and quantum computing and backed by a strong HPC background (C++, CUDA, OpenMP) — I placed 2nd Runner-up at the 2025 NTU-IBM Qiskit Hackathon and earned an IBM Quantum Excellence Badge. Fluent in Chinese, English, Cantonese, and Japanese (JLPT N1), I love turning complex ideas into accessible teaching, having previously served as an assistant lecturer in Civil Engineering.",
+      zh: "我是資訊工程博士候選人（預計 2026 年畢業），擁有基因體與生物資訊碩士學位，專注於人工智慧與量子計算的跨領域應用，具備紮實的高效能運算（C++、CUDA、OpenMP）背景，曾獲 2025 NTU-IBM Qiskit 量子黑客松季軍及 IBM Quantum Excellence Badge。我精通中、英、粵、日文（JLPT N1），曾任土木工程系助理講師，擅長將複雜概念轉化為易懂教材。",
     },
   },
   "mark-chen": {
@@ -227,6 +237,7 @@ export const STAFF: StaffYear[] = [
       },
       { personId: "katie-chao", role: "Vice President", section: "executive" },
       { personId: "maxence", role: "STEM Chair", section: "executive" },
+      { personId: "martin-wu", role: "STEM Member", section: "executive" },
       { personId: "haocheng-kan", role: "PR Chair", section: "executive" },
       { vacant: true, role: "Administration Chair", section: "executive" },
       { personId: "christian-rioflorido", role: "Competitions Chair", section: "executive" },
@@ -263,7 +274,7 @@ export const STAFF: StaffYear[] = [
     label: { en: "112th Academic Year (2023-2024)", zh: "112學年度（2023-2024）" },
     positions: [
       {
-        personId: "chao-hsien",
+        personId: "katie-chao",
         role: "President",
         section: "executive",
         note: { en: "Founding President", zh: "創社社長" },

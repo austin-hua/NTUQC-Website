@@ -85,8 +85,8 @@ export const CLUB_EVENTS_BY_YEAR: Record<string, ClubEvent[]> = {
       title: { en: "NTUQC 115-1 Convention", zh: "NTUQC 115-1 社員大會" },
       date: "8/15/2026 · 19:00-21:00",
       description: {
-        en: "General assembly and convention for all club members to open the semester, hosted by Austin Hua and Chao Hsien.",
-        zh: "由 Austin Hua 與 Chao Hsien 主持，全體社員參與的開學社員大會。",
+        en: "General assembly and convention for all club members to open the semester, hosted by Austin Hua and Katie Chao.",
+        zh: "由 Austin Hua 與 Katie Chao 主持，全體社員參與的開學社員大會。",
       },
       status: "confirmed",
     },
