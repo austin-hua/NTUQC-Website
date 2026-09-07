@@ -138,8 +138,8 @@ export const PEOPLE: Record<string, Person> = {
     link: "https://phys.ncts.ntu.edu.tw/en/people/research_staff/Arutkin-Maxence-Matthieu-Francois-%E9%98%BF%E4%BA%92%E9%87%91-29324080",
     affiliation: "NCTS Physics",
     intro: {
-      en: "Hi, I'm Maxence! I got hooked on quantum computing after my first qubit simulation crashed spectacularly. Can't wait to share that same spark with new members.",
-      zh: "嗨，我是Maxence！我第一次做量子位元模擬就慘烈當機，卻也因此徹底愛上了量子計算。迫不及待想把這份熱情分享給新社員！",
+      en: "I'm a French theoretical physicist and postdoctoral researcher at NCTS/NTU, with an interdisciplinary background spanning statistical physics, finance, biology, and medicine across France, the UK, Israel, and Taiwan. I'm especially excited about how quantum computing could help tackle complex-system problems in these fields.",
+      zh: "我是法國理論物理學家，目前於 NCTS／台大擔任博士後研究員，跨足統計物理、量化金融、生物與醫學研究，足跡遍及法國、英國、以色列與台灣。我特別關注量子計算等新興運算方法，未來如何應用於這些領域的複雜系統問題。",
     },
   },
   "haocheng-kan": {
