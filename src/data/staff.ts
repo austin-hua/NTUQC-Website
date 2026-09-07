@@ -15,10 +15,12 @@ export type LocalizedText = { en: string; zh: string };
 
 export type Person = {
   name: string;
+  nameZh?: string;
   image: string;
   intro?: LocalizedText;
   link?: string;
   affiliation?: string;
+  affiliationZh?: string;
 };
 
 export type StaffPosition = {
@@ -49,12 +51,12 @@ export type StaffYear = {
 export const ROLE_NAMES: Record<StaffRole, LocalizedText> = {
   President: { en: "President", zh: "社長" },
   "Vice President": { en: "Vice President", zh: "副社長" },
-  "STEM Chair": { en: "STEM Chair", zh: "學術長" },
-  "STEM Member": { en: "STEM Member", zh: "學術部部員" },
-  "PR Chair": { en: "PR Chair", zh: "公關長" },
-  "Administration Chair": { en: "Administration Chair", zh: "行政長" },
-  "Competitions Chair": { en: "Competitions Chair", zh: "競賽長" },
-  "Events Chair": { en: "Events Chair", zh: "活動長" },
+  "STEM Chair": { en: "STEM Chair", zh: "理工部長" },
+  "STEM Member": { en: "STEM Member", zh: "理工部員" },
+  "PR Chair": { en: "PR Chair", zh: "公關部長" },
+  "Administration Chair": { en: "Administration Chair", zh: "行政部長" },
+  "Competitions Chair": { en: "Competitions Chair", zh: "競賽部長" },
+  "Events Chair": { en: "Events Chair", zh: "活動部長" },
   "Club Advisor": { en: "Club Advisor", zh: "指導教授" },
   Advisor: { en: "Advisor", zh: "顧問" },
   "Co-Founder": { en: "Co-Founder", zh: "共同創辦人" },
@@ -80,7 +82,7 @@ export const ROLE_DESCRIPTIONS: Record<StaffRole, LocalizedText> = {
   },
   "STEM Member": {
     en: "Supports the STEM Chair in promoting quantum science and computing knowledge on campus, helping run technical lectures, courses, and workshops, and assisting members with learning and research consultation.",
-    zh: "協助學術長在校園推廣量子科學與量子計算知識，協辦技術講座、課程與工作坊，並協助社員解決學習與研究上的問題。",
+    zh: "協助理工部長在校園推廣量子科學與量子計算知識，協辦技術講座、課程與工作坊，並協助社員解決學習與研究上的問題。",
   },
   "Administration Chair": {
     en: "Keeps the club running behind the scenes: recording attendance, meeting minutes, and General Assemblies, and handling venue reservations. Manages financial planning and member records.",
@@ -114,9 +116,11 @@ export const ROLE_DESCRIPTIONS: Record<StaffRole, LocalizedText> = {
 export const PEOPLE: Record<string, Person> = {
   "po-sheng-huang": {
     name: "Po-Sheng Huang",
+    nameZh: "黃柏勝",
     image: "/staff/po-sheng-huang.jpg",
     link: "https://www.linkedin.com/in/%E6%9F%8F%E5%8B%9D-%E9%BB%83-917a61206/",
     affiliation: "NTU BST",
+    affiliationZh: "台大生化科技系",
     intro: {
       en: "Hi, I'm Po-Sheng! I'm a huge fan of bubble tea and late-night debugging sessions. Looking forward to a great year of quantum exploration with everyone.",
       zh: "大家好，我是柏昇！我超愛珍珠奶茶，也很享受半夜除錯的時光。期待和大家一起展開精彩的量子探索之旅！",
@@ -124,9 +128,11 @@ export const PEOPLE: Record<string, Person> = {
   },
   "katie-chao": {
     name: "Katie Chao",
+    nameZh: "趙嫺",
     image: "/staff/katie-chao.jpg",
     link: "https://www.linkedin.com/in/katie-chao-42a635289/",
     affiliation: "NTU Chemistry",
+    affiliationZh: "台大化學系",
     intro: {
       en: "Hey there, I'm Katie! When I'm not in class you can probably find me at the climbing gym. Excited to help make this year's events unforgettable.",
       zh: "大家好，我是Katie！沒有課的時候，通常可以在攀岩館找到我。很期待這學年能把每場活動辦得令人難忘！",
@@ -134,9 +140,11 @@ export const PEOPLE: Record<string, Person> = {
   },
   maxence: {
     name: "Maxence Francois",
+    nameZh: "阿互金",
     image: "/staff/maxence.jpg",
     link: "https://phys.ncts.ntu.edu.tw/en/people/research_staff/Arutkin-Maxence-Matthieu-Francois-%E9%98%BF%E4%BA%92%E9%87%91-29324080",
     affiliation: "NCTS Physics",
+    affiliationZh: "國家理論科學研究中心物理組",
     intro: {
       en: "I'm a French theoretical physicist and postdoctoral researcher at NCTS/NTU, with an interdisciplinary background spanning statistical physics, finance, biology, and medicine across France, the UK, Israel, and Taiwan. I'm especially excited about how quantum computing could help tackle complex-system problems in these fields.",
       zh: "我是法國理論物理學家，目前於 NCTS／台大擔任博士後研究員，跨足統計物理、量化金融、生物與醫學研究，足跡遍及法國、英國、以色列與台灣。我特別關注量子計算等新興運算方法，未來如何應用於這些領域的複雜系統問題。",
@@ -144,9 +152,11 @@ export const PEOPLE: Record<string, Person> = {
   },
   "haocheng-kan": {
     name: "Haocheng Kan",
+    nameZh: "干皓丞",
     image: "/staff/haocheng-kan.jpg",
     link: "https://www.linkedin.com/in/haocheng-kan-b59b3b92/",
     affiliation: "Peking University",
+    affiliationZh: "北京大學",
     intro: {
       en: "My background is in AI, federated learning, privacy-preserving machine learning, and computer vision, and I'm currently exploring Quantum Machine Learning (QML). This year I hope to contribute to NTUQC through QML learning, technical projects, and interdisciplinary collaboration between quantum computing and AI.",
       zh: "我的背景涵蓋人工智慧、聯邦學習、隱私保護機器學習與電腦視覺，目前正在探索量子機器學習（QML）。今年我希望透過 QML 學習、技術專案，以及量子計算與 AI 的跨領域合作，為 NTUQC 做出貢獻。",
@@ -154,9 +164,11 @@ export const PEOPLE: Record<string, Person> = {
   },
   "christian-rioflorido": {
     name: "Christian Rioflorido",
+    nameZh: "戴瑞翔",
     image: "/staff/christian-rioflorido.jpg",
     link: "https://www.linkedin.com/in/clprioflorido/",
     affiliation: "CYCU EE",
+    affiliationZh: "中原大學電機工程學系",
     intro: {
       en: "I'm a PhD candidate from Chung Yuan Christian University, working on my dissertation in quantum machine learning and quantum computing. I lead the club's Competitions Department, eager to plan competitions and train our members to win.",
       zh: "我是中原大學的博士生，博士論文聚焦於量子機器學習與量子計算。我負責社團的競賽部門，致力於規劃競賽並培訓社員取得佳績。",
@@ -164,9 +176,11 @@ export const PEOPLE: Record<string, Person> = {
   },
   "robin-fischer": {
     name: "Robin Fischer",
+    nameZh: "羅賓",
     image: "/staff/robin-fischer.jpg",
     link: "https://github.com/RobinFischer",
     affiliation: "NTU CSIE",
+    affiliationZh: "台大資訊工程學系",
     intro: {
       en: "I'm a PhD candidate in Computer Science at NTU researching human-centered AI, augmented reality, and human-computer interaction. Beyond research, I'm active in NTUESA and NTUQC organizing cultural and international community events, and I love building cross-cultural connections.",
       zh: "我是台大資工博士生，研究方向為人本人工智慧、擴增實境與人機互動。除了研究之外，我也積極參與 NTUESA 與 NTUQC，籌辦跨文化交流活動，熱衷於促進國際學生與在地學生之間的連結。",
@@ -174,9 +188,11 @@ export const PEOPLE: Record<string, Person> = {
   },
   "hsi-sheng-goan": {
     name: "Professor Hsi-Sheng Goan",
+    nameZh: "管希聖教授",
     image: "/staff/goan.jpg",
     link: "https://www.phys.ntu.edu.tw/enphysics/goan.html",
     affiliation: "NTU Physics",
+    affiliationZh: "台大物理學系",
     intro: {
       en: "I've spent my career researching quantum information and open quantum systems, and I'm delighted to support NTUQC's students as they explore this field. Looking forward to another exciting year of ideas and collaboration.",
       zh: "我的學術生涯致力於量子資訊與開放量子系統的研究，很樂意支持 NTUQC 的同學們探索這個領域。期待新的一年能有更多精彩的想法交流與合作。",
@@ -184,17 +200,21 @@ export const PEOPLE: Record<string, Person> = {
   },
   "jordan-chiao": {
     name: "Jordan Chiao",
+    nameZh: "喬冠豪",
     image: "/staff/jordan-chiao.jpg",
   },
   "chengwei-huang": {
     name: "Cesare Huang",
+    nameZh: "黃承瑋",
     image: "/staff/chengwei-huang.jpg",
   },
   "austin-hua": {
     name: "Austin Hua",
+    nameZh: "華士頓",
     image: "/staff/austin-hua.jpg",
     link: "https://www.linkedin.com/in/austin-hua/",
     affiliation: "NTU CSIE",
+    affiliationZh: "台大資訊工程學系",
     intro: {
       en: "Hi! I am Austin, an NTU CSIE MS graduate and co-founder of NTUQC. For this academic year I am assisting the President and Vice President in forming strategic partnerships in both academia and industry and contributing to the overall direction, development, and growth of the club. Feel free to reach out to me on my provided LinkedIn if you have any questions.",
       zh: "大家好，我是Austin，台大資工所碩士畢業，也是 NTUQC 的共同創辦人。這學年我協助社長與副社長建立學術界與產業界的策略夥伴關係，並參與社團整體方向、發展與成長的規劃。若有任何問題，歡迎透過我的 LinkedIn 與我聯繫。",
@@ -202,9 +222,11 @@ export const PEOPLE: Record<string, Person> = {
   },
   "martin-wu": {
     name: "Martin Wu",
+    nameZh: "吳肇軒",
     image: "/staff/martin-wu.jpg",
     link: "https://github.com/mnsh0409",
     affiliation: "Academia Sinica",
+    affiliationZh: "中研院",
     intro: {
       en: "I'm a PhD candidate in Computer Science researching AI and quantum computing, and placed 2nd Runner-up at the 2025 NTU-IBM Qiskit Hackathon. I speak Chinese, English, Cantonese, and Japanese, and love turning complex ideas into accessible teaching.",
       zh: "我是資訊工程博士候選人，研究專攻人工智慧與量子計算，曾獲 2025 NTU-IBM Qiskit 量子黑客松季軍。我精通中、英、粵、日文，擅長將複雜概念轉化為易懂教材。",
@@ -212,9 +234,11 @@ export const PEOPLE: Record<string, Person> = {
   },
   "mark-chen": {
     name: "Mark Chen",
+    nameZh: "陳皓圓",
     image: "/staff/mark-chen.jpg",
     link: "https://www.linkedin.com/in/mark-chen-next/",
     affiliation: "UoL CS",
+    affiliationZh: "倫敦大學電腦科學系",
     intro: {
       en: "I'm an AI researcher and entrepreneur working at the intersection of AI, quantum computing, and autonomous systems, and the Founder/CEO of Mindify AI. My research spans quantum machine learning, large language models, and AI agents, and at NTUQC I'm excited to explore how quantum computing can power the next generation of intelligent systems.",
       zh: "我是一名 AI 研究者與創業者，專注於人工智慧、量子計算與自主系統的交集，同時也是 Mindify AI 的創辦人兼執行長。我的研究領域涵蓋量子機器學習、大型語言模型與 AI 代理，在 NTUQC 我很期待探索量子計算如何驅動下一代智慧系統。",

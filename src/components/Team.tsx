@@ -152,11 +152,20 @@ const StaffCard = ({ position }: { position: StaffPosition | VacantPosition }) =
           <Lucide.IconUser className="size-1/2" />
         </Avatar>
         <div className="flex flex-col min-w-0">
-          <h3 className="text-neutral-12 text-sm font-medium">{person.name}</h3>
+          <h3 className="text-neutral-12 text-sm font-medium">
+            <span className="i18n-en">{person.name}</span>
+            <span className="i18n-zh">{person.nameZh ?? person.name}</span>
+          </h3>
           <span className="text-neutral-10 text-xs">
             <span className="i18n-en">{roleName.en}</span>
             <span className="i18n-zh">{roleName.zh}</span>
-            {person.affiliation && <> · {person.affiliation}</>}
+            {person.affiliation && (
+              <>
+                {" · "}
+                <span className="i18n-en">{person.affiliation}</span>
+                <span className="i18n-zh">{person.affiliationZh ?? person.affiliation}</span>
+              </>
+            )}
           </span>
           {position.note && (
             <span className="text-primary-10 text-[11px] font-medium">
