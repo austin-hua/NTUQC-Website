@@ -206,8 +206,8 @@ export const PEOPLE: Record<string, Person> = {
     link: "https://github.com/mnsh0409",
     affiliation: "Academia Sinica",
     intro: {
-      en: "I'm a PhD candidate in Computer Science (expected to graduate in 2026) with a Master's in Genomics and Bioinformatics, focused on the intersection of AI and quantum computing and backed by a strong HPC background (C++, CUDA, OpenMP) — I placed 2nd Runner-up at the 2025 NTU-IBM Qiskit Hackathon and earned an IBM Quantum Excellence Badge. Fluent in Chinese, English, Cantonese, and Japanese (JLPT N1), I love turning complex ideas into accessible teaching, having previously served as an assistant lecturer in Civil Engineering.",
-      zh: "我是資訊工程博士候選人（預計 2026 年畢業），擁有基因體與生物資訊碩士學位，專注於人工智慧與量子計算的跨領域應用，具備紮實的高效能運算（C++、CUDA、OpenMP）背景，曾獲 2025 NTU-IBM Qiskit 量子黑客松季軍及 IBM Quantum Excellence Badge。我精通中、英、粵、日文（JLPT N1），曾任土木工程系助理講師，擅長將複雜概念轉化為易懂教材。",
+      en: "I'm a PhD candidate in Computer Science researching AI and quantum computing, and placed 2nd Runner-up at the 2025 NTU-IBM Qiskit Hackathon. I speak Chinese, English, Cantonese, and Japanese, and love turning complex ideas into accessible teaching.",
+      zh: "我是資訊工程博士候選人，研究專攻人工智慧與量子計算，曾獲 2025 NTU-IBM Qiskit 量子黑客松季軍。我精通中、英、粵、日文，擅長將複雜概念轉化為易懂教材。",
     },
   },
   "mark-chen": {

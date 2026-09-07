@@ -53,13 +53,6 @@ export default ({ year }: Props) => {
           <span className="i18n-en">{staffYear.label.en}</span>
           <span className="i18n-zh">{staffYear.label.zh}</span>
         </p>
-
-        {year === CURRENT_YEAR && (
-          <Button as="a" href={STAFF_APPLICATION_FORM_URL} target="_blank" rel="noreferrer" className="px-5 h-11 text-base">
-            <span className="i18n-en">Apply to Join Our Staff Team</span>
-            <span className="i18n-zh">申請加入幹部團隊</span>
-          </Button>
-        )}
       </div>
 
       {staffYear.inactive ? (
@@ -73,6 +66,19 @@ export default ({ year }: Props) => {
 
           {advisors.length > 0 && <StaffSection titleEn="Advisors" titleZh="顧問群" positions={advisors} />}
         </>
+      )}
+
+      {year === CURRENT_YEAR && (
+        <div className="flex flex-col items-start gap-2 pt-2">
+          <p className="text-sm text-neutral-10">
+            <span className="i18n-en">Interested in joining our staff team?</span>
+            <span className="i18n-zh">有興趣加入我們的幹部團隊嗎？</span>
+          </p>
+          <Button as="a" href={STAFF_APPLICATION_FORM_URL} target="_blank" rel="noreferrer" className="px-5 h-11 text-base">
+            <span className="i18n-en">Apply to Join Our Staff Team</span>
+            <span className="i18n-zh">申請加入幹部團隊</span>
+          </Button>
+        </div>
       )}
     </div>
   );
