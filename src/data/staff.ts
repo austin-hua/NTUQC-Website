@@ -142,8 +142,8 @@ export const PEOPLE: Record<string, Person> = {
     affiliation: "NTU Chemistry",
     affiliationZh: "台大化學系",
     intro: {
-      en: "Hey there, I'm Katie! Excited to help make this year's events unforgettable.",
-      zh: "大家好，我是Katie！很期待這學年能把每場活動辦得令人難忘！",
+      en: "Hey there, I'm Katie! I founded NTUQC, and I'm excited to help make this year's events unforgettable.",
+      zh: "大家好，我是Katie！我是 NTUQC 的創辦人，很期待這學年能把每場活動辦得令人難忘！",
     },
   },
   maxence: {
