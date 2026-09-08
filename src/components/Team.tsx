@@ -110,7 +110,7 @@ const StaffSection = ({
 
 const StaffCard = ({ position }: { position: StaffPosition | VacantPosition }) => {
   const roleName = ROLE_NAMES[position.role];
-  const jd = ROLE_DESCRIPTIONS[position.role];
+  const defaultJd = ROLE_DESCRIPTIONS[position.role];
 
   if ("vacant" in position) {
     return (
@@ -124,10 +124,10 @@ const StaffCard = ({ position }: { position: StaffPosition | VacantPosition }) =
           <span className="i18n-en">{roleName.en}</span>
           <span className="i18n-zh">{roleName.zh}</span>
         </h3>
-        {jd && (
+        {defaultJd && (
           <p className="text-neutral-10 text-xs">
-            <span className="i18n-en">{jd.en}</span>
-            <span className="i18n-zh">{jd.zh}</span>
+            <span className="i18n-en">{defaultJd.en}</span>
+            <span className="i18n-zh">{defaultJd.zh}</span>
           </p>
         )}
         <a
@@ -144,6 +144,7 @@ const StaffCard = ({ position }: { position: StaffPosition | VacantPosition }) =
 
   const person = PEOPLE[position.personId];
   const intro = position.intro ?? person.intro;
+  const jd = position.jd ?? defaultJd;
 
   const content = (
     <>

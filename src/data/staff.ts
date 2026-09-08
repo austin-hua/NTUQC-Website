@@ -32,6 +32,10 @@ export type StaffPosition = {
   // someone whose bio text is tied to a different year/role (e.g. it
   // references "this academic year" for their current role).
   intro?: LocalizedText;
+  // Overrides the role's constitution-sourced job description for this
+  // specific position, for someone whose actual day-to-day scope differs
+  // from the role's default responsibilities.
+  jd?: LocalizedText;
 };
 
 export type VacantPosition = {
@@ -122,8 +126,8 @@ export const PEOPLE: Record<string, Person> = {
     affiliation: "NTU BST",
     affiliationZh: "台大生化科技系",
     intro: {
-      en: "Hi, I'm Po-Sheng! I'm a huge fan of bubble tea and late-night debugging sessions. Looking forward to a great year of quantum exploration with everyone.",
-      zh: "大家好，我是柏昇！我超愛珍珠奶茶，也很享受半夜除錯的時光。期待和大家一起展開精彩的量子探索之旅！",
+      en: "Hi, I'm Po-Sheng! I study Biochemical Science and Technology, so quantum computing is still new territory for me, but I'm excited to learn more about its applications while leading the club this year. When I'm not studying, you can probably find me with a bubble tea in hand.",
+      zh: "大家好，我是柏昇！我是生化科技學系的學生，對量子計算還在入門階段，希望能透過帶領社團更深入了解它的應用。沒讀書的時候，手上通常都有一杯珍珠奶茶。",
     },
   },
   "katie-chao": {
@@ -139,15 +143,15 @@ export const PEOPLE: Record<string, Person> = {
     },
   },
   maxence: {
-    name: "Maxence Francois",
+    name: "Maxence Arutkin",
     nameZh: "阿互金",
     image: "/staff/maxence.jpg",
     link: "https://phys.ncts.ntu.edu.tw/en/people/research_staff/Arutkin-Maxence-Matthieu-Francois-%E9%98%BF%E4%BA%92%E9%87%91-29324080",
     affiliation: "NCTS Physics",
     affiliationZh: "國家理論科學研究中心物理組",
     intro: {
-      en: "I'm a French theoretical physicist and postdoctoral researcher at NCTS/NTU, with an interdisciplinary background spanning statistical physics, finance, biology, and medicine across France, the UK, Israel, and Taiwan. I'm especially excited about how quantum computing could help tackle complex-system problems in these fields.",
-      zh: "我是法國理論物理學家，目前於 NCTS／台大擔任博士後研究員，跨足統計物理、量化金融、生物與醫學研究，足跡遍及法國、英國、以色列與台灣。我特別關注量子計算等新興運算方法，未來如何應用於這些領域的複雜系統問題。",
+      en: "I'm a French theoretical physicist and postdoctoral researcher at NCTS/NTU, with an interdisciplinary background spanning statistical physics, finance, biology, and medicine, as well as research experience in France, Israel, and Taiwan. I'm particularly interested in stochastic processes, complex systems, and the potential applications of quantum computing to problems in these areas.",
+      zh: "我是法國理論物理學家，目前於 NCTS／台大擔任博士後研究員，跨足統計物理、金融、生物與醫學等跨領域背景，並曾在法國、以色列與台灣從事研究。我特別關注隨機過程、複雜系統，以及量子計算在這些領域中的潛在應用。",
     },
   },
   "haocheng-kan": {
@@ -260,7 +264,15 @@ export const STAFF: StaffYear[] = [
         note: { en: "3rd President", zh: "第3任社長" },
       },
       { personId: "katie-chao", role: "Vice President", section: "executive" },
-      { personId: "maxence", role: "STEM Chair", section: "executive" },
+      {
+        personId: "maxence",
+        role: "STEM Chair",
+        section: "executive",
+        jd: {
+          en: "Promotes quantum science and quantum computing knowledge on campus. Contributes to scientific discussions and supports selected activities, including research-related questions.",
+          zh: "在校園推廣量子科學與量子計算知識，參與學術討論並支援部分活動，包括研究相關問題的協助。",
+        },
+      },
       { personId: "martin-wu", role: "STEM Member", section: "executive" },
       { personId: "haocheng-kan", role: "PR Chair", section: "executive" },
       { vacant: true, role: "Administration Chair", section: "executive" },
