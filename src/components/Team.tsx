@@ -149,7 +149,11 @@ const StaffCard = ({ position }: { position: StaffPosition | VacantPosition }) =
   const content = (
     <>
       <div className="flex flex-row items-center gap-3">
-        <Avatar src={person.image} alt={person.name} classNames={{ root: "shrink-0" }}>
+        <Avatar
+          src={person.image}
+          alt={person.name}
+          classNames={{ root: "shrink-0", image: person.imagePosition === "top" ? "object-top" : undefined }}
+        >
           <Lucide.IconUser className="size-1/2" />
         </Avatar>
         <div className="flex flex-col min-w-0">

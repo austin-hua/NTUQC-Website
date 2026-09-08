@@ -17,6 +17,9 @@ export type Person = {
   name: string;
   nameZh?: string;
   image: string;
+  // Shifts the avatar's crop toward the top of the photo, for portraits
+  // where the default centered crop cuts off the top of the head.
+  imagePosition?: "top";
   intro?: LocalizedText;
   link?: string;
   affiliation?: string;
@@ -122,6 +125,7 @@ export const PEOPLE: Record<string, Person> = {
     name: "Po-Sheng Huang",
     nameZh: "黃柏勝",
     image: "/staff/po-sheng-huang.jpg",
+    imagePosition: "top",
     link: "https://www.linkedin.com/in/%E6%9F%8F%E5%8B%9D-%E9%BB%83-917a61206/",
     affiliation: "NTU BST",
     affiliationZh: "台大生化科技系",
@@ -146,7 +150,7 @@ export const PEOPLE: Record<string, Person> = {
     name: "Maxence Arutkin",
     nameZh: "阿互金",
     image: "/staff/maxence.jpg",
-    link: "https://phys.ncts.ntu.edu.tw/en/people/research_staff/Arutkin-Maxence-Matthieu-Francois-%E9%98%BF%E4%BA%92%E9%87%91-29324080",
+    link: "https://www.researchgate.net/profile/Arutkin-Maxence",
     affiliation: "NCTS Physics",
     affiliationZh: "國家理論科學研究中心物理組",
     intro: {
@@ -228,6 +232,7 @@ export const PEOPLE: Record<string, Person> = {
     name: "Martin Ng",
     nameZh: "吳肇軒",
     image: "/staff/martin-wu.jpg",
+    imagePosition: "top",
     link: "https://github.com/mnsh0409",
     affiliation: "Academia Sinica",
     affiliationZh: "中研院",
