@@ -161,17 +161,16 @@ const StaffCard = ({ position }: { position: StaffPosition | VacantPosition }) =
             <span className="i18n-en">{person.name}</span>
             <span className="i18n-zh">{person.nameZh ?? person.name}</span>
           </h3>
-          <span className="text-neutral-10 text-xs">
+          <span className="block text-neutral-10 text-xs">
             <span className="i18n-en">{roleName.en}</span>
             <span className="i18n-zh">{roleName.zh}</span>
-            {person.affiliation && (
-              <>
-                {" · "}
-                <span className="i18n-en">{person.affiliation}</span>
-                <span className="i18n-zh">{person.affiliationZh ?? person.affiliation}</span>
-              </>
-            )}
           </span>
+          {person.affiliation && (
+            <span className="block text-neutral-10 text-xs">
+              <span className="i18n-en">{person.affiliation}</span>
+              <span className="i18n-zh">{person.affiliationZh ?? person.affiliation}</span>
+            </span>
+          )}
           {position.note && (
             <span className="text-primary-10 text-[11px] font-medium">
               <span className="i18n-en">{position.note.en}</span>

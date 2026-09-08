@@ -130,8 +130,8 @@ export const PEOPLE: Record<string, Person> = {
     affiliation: "NTU BST",
     affiliationZh: "台大生化科技系",
     intro: {
-      en: "Hi, I'm Po-Sheng! I study Biochemical Science and Technology, so quantum computing is still new territory for me, but I'm excited to learn more about its applications while leading the club this year. When I'm not studying, you can probably find me with a bubble tea in hand.",
-      zh: "大家好，我是柏昇！我是生化科技學系的學生，對量子計算還在入門階段，希望能透過帶領社團更深入了解它的應用。沒讀書的時候，手上通常都有一杯珍珠奶茶。",
+      en: "Hi, I'm Po-Sheng! I study Biochemical Science and Technology, so quantum computing is still new territory for me, but I'm excited to learn more about its applications while leading the club this year.",
+      zh: "大家好，我是柏昇！我是生化科技學系的學生，對量子計算還在入門階段，希望能透過帶領社團更深入了解它的應用。",
     },
   },
   "katie-chao": {
@@ -142,8 +142,8 @@ export const PEOPLE: Record<string, Person> = {
     affiliation: "NTU Chemistry",
     affiliationZh: "台大化學系",
     intro: {
-      en: "Hey there, I'm Katie! When I'm not in class you can probably find me at the climbing gym. Excited to help make this year's events unforgettable.",
-      zh: "大家好，我是Katie！沒有課的時候，通常可以在攀岩館找到我。很期待這學年能把每場活動辦得令人難忘！",
+      en: "Hey there, I'm Katie! Excited to help make this year's events unforgettable.",
+      zh: "大家好，我是Katie！很期待這學年能把每場活動辦得令人難忘！",
     },
   },
   maxence: {
