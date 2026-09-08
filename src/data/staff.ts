@@ -237,8 +237,8 @@ export const PEOPLE: Record<string, Person> = {
     affiliation: "Academia Sinica",
     affiliationZh: "中研院",
     intro: {
-      en: "I'm a PhD candidate researching machine learning and quantum information, and I placed 2nd Runner-up at the 2025 NTU-IBM Qiskit Hackathon. This July I presented a negative result at EASIT 2026: in the single-copy setting, quantum multi-armed bandits collapse exactly onto their classical counterparts, so the hoped-for speedup isn't there. My background runs through civil engineering, biology, finance, and computer science, and my most recent accepted paper is at ICDM 2026. I speak Chinese, English, Cantonese, and Japanese, and I like turning complex ideas into something teachable — which is most of what I want to do on this committee.",
-      zh: "我是博士候選人，主要研究機器學習與量子資訊，曾獲 2025 NTU-IBM Qiskit 量子黑客松季軍。今年七月，我在 EASIT 2026 發表了一項否定性結果：在單複本（single-copy）情境下，量子多臂拉霸機（quantum multi-armed bandits）會完全收斂為其古典對應版本，因此原本期待的量子加速效果並不存在。我的背景橫跨土木工程、生物、金融與資訊工程，最新一篇論文已被 ICDM 2026 接受。我精通中、英、粵、日文，喜歡把複雜的概念轉化為容易理解的內容——這也是我在本委員會主要想做的事。",
+      en: "I'm a PhD candidate researching machine learning and quantum information — I placed 2nd Runner-up at the 2025 NTU-IBM Qiskit Hackathon, and this July presented a negative result at EASIT 2026 showing quantum multi-armed bandits collapse onto their classical counterparts in the single-copy setting. My background spans civil engineering, biology, finance, and computer science, with a paper recently accepted at ICDM 2026, and I speak Chinese, English, Cantonese, and Japanese.",
+      zh: "我是博士候選人，主要研究機器學習與量子資訊，曾獲 2025 NTU-IBM Qiskit 量子黑客松季軍，並於今年七月在 EASIT 2026 發表一項否定性結果，顯示在單複本情境下量子多臂拉霸機會完全收斂為古典版本。我的背景橫跨土木工程、生物、金融與資訊工程，最新論文已被 ICDM 2026 接受，並精通中、英、粵、日文。",
     },
   },
   "mark-chen": {
