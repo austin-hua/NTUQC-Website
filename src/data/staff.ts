@@ -142,8 +142,8 @@ export const PEOPLE: Record<string, Person> = {
     affiliation: "NTU Chemistry",
     affiliationZh: "台大化學系",
     intro: {
-      en: "Hey there, I'm Katie! I founded NTUQC, and I'm excited to help make this year's events unforgettable.",
-      zh: "大家好，我是Katie！我是 NTUQC 的創辦人，很期待這學年能把每場活動辦得令人難忘！",
+      en: "Hi, I'm Katie, the founder and current Vice President of NTU Quantum Club. My research focuses on characterizing errors in superconducting qubits. This year, I hope to make quantum computing more approachable and give members more opportunities to explore the field. You're always welcome to contact me through LinkedIn!",
+      zh: "嗨，我是Katie，NTU Quantum Club 的創辦人，目前擔任副社長。我的研究專注於超導量子位元的錯誤特性分析。這學年，我希望能讓量子計算變得更平易近人，並為社員提供更多探索這個領域的機會。歡迎隨時透過 LinkedIn 與我聯繫！",
     },
   },
   maxence: {
