@@ -2,11 +2,10 @@
 import MainLayout from "~/layouts/MainLayout.astro";
 
 import Nav from "~/components/Nav.astro";
-import ClubEvents from "~/components/ClubEvents.tsx";
 import { Lucide } from "~/components/icons";
 
 import { CURRENT_YEAR, getStaffYear } from "~/data/staff.ts";
-import { PARTNER_EVENTS } from "~/data/events.ts";
+import { EVENT_TYPES, PARTNER_EVENTS } from "~/data/events.ts";
 
 const staffYear = getStaffYear(CURRENT_YEAR)!;
 
@@ -30,7 +29,72 @@ const cardClasses = [
   <main class="container p-3 mx-auto max-w-screen-sm min-h-dvh">
     <Nav active="events" />
 
-    <div class="flex flex-col gap-8 px-3 lg:px-6 py-4">
+    <div class="flex flex-col gap-2 px-3 lg:px-6 pt-4 pb-3">
+      <div class="flex items-center justify-between gap-3">
+        <h2 class="font-medium text-xl">
+          <span class="i18n-en">Event Calendar</span>
+          <span class="i18n-zh">活動行事曆</span>
+        </h2>
+        <a
+          href={EVENT_CALENDAR_URL}
+          target="_blank"
+          rel="noreferrer"
+          class="flex items-center gap-1 text-sm text-neutral-10 hover:text-primary-11 transition"
+        >
+          <span class="i18n-en">Open in Google Sheets</span>
+          <span class="i18n-zh">在 Google 試算表開啟</span>
+          <Lucide.IconExternalLink size={16} />
+        </a>
+      </div>
+      <p class="text-neutral-10 text-sm">
+        <span class="i18n-en">Our schedule is updated regularly. Upcoming dates may change as details are confirmed.</span>
+        <span class="i18n-zh">行事曆會定期更新，尚未舉行的活動日期可能依確認結果調整。</span>
+      </p>
+    </div>
+
+    <!-- The schedule has many wide columns, so the embed breaks out of the
+         narrow content column and is centered on the viewport. On small
+         screens the sheet scrolls horizontally inside the frame. -->
+    <div class="relative left-1/2 -translate-x-1/2 w-[min(calc(100vw-2rem),80rem)]">
+      <iframe
+        src={EVENT_CALENDAR_EMBED_URL}
+        title="NTUQC event calendar"
+        class="w-full h-[36rem] bg-white border border-neutral-4 rounded-3xl"
+      ></iframe>
+    </div>
+
+    <div class="flex flex-col gap-8 px-3 lg:px-6 py-8">
+      <div>
+        <h2 class="font-medium text-xl mb-1">
+          <span class="i18n-en">What We Host</span>
+          <span class="i18n-zh">活動類型</span>
+        </h2>
+        <p class="text-neutral-10 text-sm mb-3">
+          <span class="i18n-en">Each semester, our events usually fall into these categories.</span>
+          <span class="i18n-zh">每學期的活動大致分為以下幾類。</span>
+        </p>
+        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 p-1">
+          {
+            EVENT_TYPES.map((type) => (
+              <li class="flex flex-col gap-2 px-5 py-4 bg-neutral-2 border border-neutral-4 rounded-3xl">
+                <h3 class="text-neutral-12 font-medium">
+                  <span class="i18n-en">{type.title.en}</span>
+                  <span class="i18n-zh">{type.title.zh}</span>
+                </h3>
+                <p class="text-neutral-11 text-sm">
+                  <span class="i18n-en">{type.description.en}</span>
+                  <span class="i18n-zh">{type.description.zh}</span>
+                </p>
+                <p class="text-neutral-10 text-xs">
+                  <span class="i18n-en">Examples: {type.examples.en}</span>
+                  <span class="i18n-zh">例如：{type.examples.zh}</span>
+                </p>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
       <div>
         <h2 class="font-medium text-xl mb-3">
           <span class="i18n-en">Partner Events</span>
@@ -69,39 +133,6 @@ const cardClasses = [
           }
         </ul>
       </div>
-
-      <ClubEvents year={staffYear.year} client:idle />
-
-      <div>
-        <div class="flex items-center justify-between gap-3 mb-3">
-          <h2 class="font-medium text-xl">
-            <span class="i18n-en">Event Calendar</span>
-            <span class="i18n-zh">活動行事曆</span>
-          </h2>
-          <a
-            href={EVENT_CALENDAR_URL}
-            target="_blank"
-            rel="noreferrer"
-            class="flex items-center gap-1 text-sm text-neutral-10 hover:text-primary-11 transition"
-          >
-            <span class="i18n-en">Open in Google Sheets</span>
-            <span class="i18n-zh">在 Google 試算表開啟</span>
-            <Lucide.IconExternalLink size={16} />
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- The schedule has many wide columns, so the embed breaks out of the
-         narrow content column and is centered on the viewport. On small
-         screens the sheet scrolls horizontally inside the frame. -->
-    <div class="relative left-1/2 -translate-x-1/2 w-[min(calc(100vw-2rem),80rem)] pb-8">
-      <iframe
-        src={EVENT_CALENDAR_EMBED_URL}
-        title="NTUQC event calendar"
-        loading="lazy"
-        class="w-full h-[36rem] bg-white border border-neutral-4 rounded-3xl"
-      ></iframe>
     </div>
   </main>
 </MainLayout>
