@@ -126,7 +126,7 @@ export const PEOPLE: Record<string, Person> = {
     nameZh: "黃柏勝",
     image: "/staff/po-sheng-huang.jpg",
     imagePosition: "top",
-    link: "https://www.linkedin.com/in/%E6%9F%8F%E5%8B%9D-%E9%BB%83-917a61206/",
+    link: "https://www.linkedin.com/in/po-sheng-huang-917a61206/",
     affiliation: "NTU BST",
     affiliationZh: "台大生化科技系",
     intro: {
