@@ -10,6 +10,11 @@ import { PARTNER_EVENTS } from "~/data/events.ts";
 
 const staffYear = getStaffYear(CURRENT_YEAR)!;
 
+const EVENT_CALENDAR_ID = "1v0ILDKIC8IvJ3raQl3T4MTx41UbotZNmJNncp_-8sJo";
+const EVENT_CALENDAR_GID = "921921177";
+const EVENT_CALENDAR_URL = `https://docs.google.com/spreadsheets/d/${EVENT_CALENDAR_ID}/edit?gid=${EVENT_CALENDAR_GID}#gid=${EVENT_CALENDAR_GID}`;
+const EVENT_CALENDAR_EMBED_URL = `https://docs.google.com/spreadsheets/d/${EVENT_CALENDAR_ID}/htmlview?gid=${EVENT_CALENDAR_GID}&widget=true&headers=false`;
+
 const cardClasses = [
   "group flex items-center justify-between px-4 py-3",
   "bg-neutral-2 hover:bg-neutral-3",
@@ -66,6 +71,37 @@ const cardClasses = [
       </div>
 
       <ClubEvents year={staffYear.year} client:idle />
+
+      <div>
+        <div class="flex items-center justify-between gap-3 mb-3">
+          <h2 class="font-medium text-xl">
+            <span class="i18n-en">Event Calendar</span>
+            <span class="i18n-zh">活動行事曆</span>
+          </h2>
+          <a
+            href={EVENT_CALENDAR_URL}
+            target="_blank"
+            rel="noreferrer"
+            class="flex items-center gap-1 text-sm text-neutral-10 hover:text-primary-11 transition"
+          >
+            <span class="i18n-en">Open in Google Sheets</span>
+            <span class="i18n-zh">在 Google 試算表開啟</span>
+            <Lucide.IconExternalLink size={16} />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- The schedule has many wide columns, so the embed breaks out of the
+         narrow content column and is centered on the viewport. On small
+         screens the sheet scrolls horizontally inside the frame. -->
+    <div class="relative left-1/2 -translate-x-1/2 w-[min(calc(100vw-2rem),80rem)] pb-8">
+      <iframe
+        src={EVENT_CALENDAR_EMBED_URL}
+        title="NTUQC event calendar"
+        loading="lazy"
+        class="w-full h-[36rem] bg-white border border-neutral-4 rounded-3xl"
+      ></iframe>
     </div>
   </main>
 </MainLayout>
