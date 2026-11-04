@@ -52,10 +52,9 @@ const cardClasses = [
       </p>
     </div>
 
-    <!-- The schedule has many wide columns, so the embed breaks out of the
-         narrow content column and is centered on the viewport. On small
-         screens the sheet scrolls horizontally inside the frame. -->
-    <div class="relative left-1/2 -translate-x-1/2 w-[min(calc(100vw-2rem),80rem)]">
+    <!-- The schedule has many wide columns; it stays within the page's content
+         width and scrolls horizontally inside the frame. -->
+    <div class="px-3 lg:px-6">
       <iframe
         src={EVENT_CALENDAR_EMBED_URL}
         title="NTUQC event calendar"
