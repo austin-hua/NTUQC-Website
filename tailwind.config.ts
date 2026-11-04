@@ -28,6 +28,15 @@ export default {
         sans: ["Inter", "Noto Sans TC"].concat(defaultTheme.fontFamily.sans),
         mono: ["Roboto Mono"].concat(defaultTheme.fontFamily.mono),
       },
+      keyframes: {
+        "nudge-right": {
+          "0%, 100%": { transform: "translateX(0)" },
+          "50%": { transform: "translateX(4px)" },
+        },
+      },
+      animation: {
+        "nudge-right": "nudge-right 1.4s ease-in-out infinite",
+      },
     },
   },
   plugins: [radix.plugin],
