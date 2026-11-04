@@ -110,4 +110,14 @@ export const PARTNERS: Partner[] = [
       zh: "由南韓多所大學學生自主成立的量子社團聯盟，成員涵蓋首爾大學、KAIST、高麗大學、延世大學、大邱慶北科學技術院（DGIST）與慶熙大學等校。",
     },
   },
+  {
+    name: "Western Quantum Club (WQC)",
+    href: "https://www.westernquantumclub.ca/",
+    status: "confirmed",
+    image: "/partners/wqc.png",
+    about: {
+      en: "A student club at Western University in London, Ontario, Canada, equipping students to understand and work with quantum computers. Its research, software, and consulting teams explore quantum developments, build open-source applications with IBM's Qiskit, and help businesses adopt quantum computing.",
+      zh: "加拿大安大略省倫敦市西安大略大學（Western University）的學生社團，致力於培養學生理解並運用量子電腦的能力。社團設有研究、軟體與顧問團隊，追蹤量子領域最新發展、以 IBM Qiskit 開發開源應用，並協助企業導入量子運算。",
+    },
+  },
 ];
