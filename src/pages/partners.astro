@@ -29,7 +29,14 @@ const confirmedPartners = PARTNERS.filter((partner) => partner.status === "confi
                   class="flex flex-col gap-4 px-5 py-6 bg-neutral-2 hover:bg-neutral-3 border border-neutral-4 hover:border-neutral-6 rounded-3xl transition outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-neutral-7 focus-visible:ring-offset-neutral-1"
                 >
                   <div class="flex items-center justify-center h-48">
-                    <img src={partner.image} alt={partner.name} class="max-h-full max-w-full object-contain" />
+                    <img
+                      src={partner.image}
+                      alt={partner.name}
+                      class:list={[
+                        "max-h-full max-w-full object-contain",
+                        partner.invertOnDark && "[[data-theme=dark]_&]:invert",
+                      ]}
+                    />
                   </div>
 
                   <div class="flex flex-col gap-2">

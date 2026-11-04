@@ -5,6 +5,9 @@ export type Partner = {
   href?: string;
   status: "confirmed" | "pending";
   image?: string;
+  // Set for dark logos on a transparent background, so they turn light
+  // (inverted) when the site is in dark mode and stay readable.
+  invertOnDark?: boolean;
   about?: LocalizedText;
   partnership?: LocalizedText;
 };
@@ -19,6 +22,7 @@ export const PARTNERS: Partner[] = [
     href: "https://btq.com",
     status: "confirmed",
     image: "/partners/btq.png",
+    invertOnDark: true,
     about: {
       en: "A quantum technology company advancing quantum technologies and post-quantum cryptography.",
       zh: "一家致力於推動量子技術與後量子密碼學發展的量子科技公司。",
