@@ -15,6 +15,20 @@ export type Partner = {
 // once each partnership is confirmed and cleared to display publicly.
 export const PARTNERS: Partner[] = [
   {
+    name: "BTQ",
+    href: "https://btq.com",
+    status: "confirmed",
+    image: "/partners/btq.png",
+    about: {
+      en: "A quantum technology company advancing quantum technologies and post-quantum cryptography.",
+      zh: "一家致力於推動量子技術與後量子密碼學發展的量子科技公司。",
+    },
+    partnership: {
+      en: "BTQ sponsors NTUQC from October 2026 to September 2027, supporting our events and contributing technical talks, career sessions, industry visits, and co-hosted events that connect students with quantum industry professionals.",
+      zh: "BTQ 於 2026 年 10 月至 2027 年 9 月贊助 NTUQC，支持社團活動，並提供技術講座、職涯分享、企業參訪及共同舉辦的活動，協助學生與量子產業專業人士交流。",
+    },
+  },
+  {
     name: "ULTRACOMPUTE",
     href: "https://ultracompute.com",
     status: "confirmed",
@@ -36,15 +50,6 @@ export const PARTNERS: Partner[] = [
     about: {
       en: "The Center for Quantum Science and Engineering at National Taiwan University, an academic research center that coordinates with IBM to advance quantum research, education, and computing access.",
       zh: "國立臺灣大學量子科學與工程研究中心，與 IBM 合作推動量子研究、教育及運算資源的學術研究中心。",
-    },
-  },
-  {
-    name: "BTQ",
-    href: "https://btq.com",
-    status: "pending",
-    about: {
-      en: "BTQ builds quantum-safe security infrastructure spanning silicon, blockchain networks, and quantum computing systems.",
-      zh: "BTQ 打造涵蓋晶片、區塊鏈網路與量子運算系統的抗量子安全基礎設施。",
     },
   },
   {
